@@ -1,0 +1,172 @@
+
+.header {
+    background-color: #8B008B;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+}
+
+.pagename {
+    font-family: "Jaro", sans-serif;
+    z-index: 3;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 30px;
+    padding-right: 30px;
+    color: white;
+}
+
+.starlight {
+    background-image: url("Textures/background.png");
+    z-index: 2;
+    display: inline-block;
+    flex-direction: flex;
+    padding-top: 425px;
+    padding-left: 50px;
+    justify-content: left;
+    border: 5px solid black;
+}
+
+.novedad {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    position: relative;
+    top: -425px;
+    left: 107px;
+    
+}
+
+.starlight-logo {
+    position: relative;
+    top: -460px;
+    left: 15px;
+    height: 50px;
+}
+.starlight-logo-text:hover{
+    cursor: pointer;
+}
+
+.starlight-logo-text {
+    position: absolute;
+    top: 181px;
+    left: 90px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+}
+
+.plants-reference {
+    position: relative;
+    top: -160px;
+    left: -25px;
+    border: 10px solid black;
+    padding: 0px;
+}
+.plants-reference:hover{
+    cursor: pointer;
+}
+
+.question {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    position: absolute;
+    top: 830px;
+    left: 60px;
+}
+
+.visit {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    position: absolute;
+    top: 860px;
+    left: 176px;
+}
+
+.side-menu{
+    background-color: #720041;
+    z-index: -1;
+    padding: 450px;
+    padding-bottom: 444px;
+    padding-left: 905px;
+    position: absolute;
+    left: 500px;
+    top: 100px;
+}
+
+.recomendation {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #DA8585;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 35px;
+    left: 110px;
+}
+
+.la-daga {
+    position: absolute;
+    left: 110px;
+    top: 150px;
+}
+
+.norte {
+    position: absolute;
+    left: 375px;
+    top: 150px;
+}
+
+.verano {
+    position: absolute;
+    left: 645px;
+    top: 150px;
+}
+
+.jackson {
+    position: absolute;
+    left: 900px;
+    top: 150px;
+}
+
+.assasing {
+    position: absolute;
+    left: 1135px;
+    top: 150px;
+}
+
+.dc {
+    position: absolute;
+    left: 110px;;
+    top: 500px;
+}
+
+.batman {
+    position: absolute;
+    left: 375px;
+    top: 500px;
+}
+
+.avatar {
+    position: absolute;
+    left: 645px;
+    top: 500px;
+}
+
+.hellboy {
+    position: absolute;
+    left: 900px;
+    top: 500px;
+}
+
+.godzilla {
+    position: absolute;
+    left: 1135px;
+    top: 500px;
+}
