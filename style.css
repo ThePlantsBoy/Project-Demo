@@ -11,10 +11,12 @@
 
 .pagename {
     font-family: "Jaro", sans-serif;
+    position: relative;
+    left: 40px;
     z-index: 3;
     font-weight: 700;
     font-style: italic;
-    font-size: 30px;
+    font-size: 35px;
     padding-right: 30px;
     color: white;
 }
@@ -92,7 +94,7 @@
     background-color: #720041;
     z-index: -1;
     padding: 450px;
-    padding-bottom: 444px;
+    padding-bottom: 460px;
     padding-left: 905px;
     position: absolute;
     left: 500px;
