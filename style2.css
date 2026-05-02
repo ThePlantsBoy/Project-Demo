@@ -1,0 +1,111 @@
+body {
+    background-color: #46b973;
+    position: relative;
+    top: -45px;
+    overflow: hidden;
+}
+
+.Starlight-text{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 700;
+    position: absolute;
+    right: 825px;
+    top: 5px;
+}
+
+.Among{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 700;
+    position: absolute;
+    right: 777px;
+    top: 50px;
+}
+
+.introduction-to-page {
+    background-color: #183459;
+    border-radius: 50px;
+    position: absolute;
+    margin: 40px;
+    top: 120px;
+    left: 480px;
+    width: 800px;
+}
+
+.text1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 15px;
+    margin: 5px;
+}
+.text2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 25px;
+    position: relative;
+    text-align: center;
+    left: 20px;
+}
+.text3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    left: 20px;
+}
+.Interactive-layout {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 675px;
+    top: 350px;
+}
+
+.characters {
+    font-size: 70px;
+    position: absolute;
+    right: -25px;
+    top: 50px;
+    padding: 50px;
+    border-radius: 50px;
+    background-color: #42A468;
+}
+.History {
+    font-size: 70px;
+    position: absolute;
+    left: 530px;
+    top: 50px;
+    padding: 50px;
+    border-radius: 50px;
+    background-color: #42A468;
+}
+.plants-little-icon {
+    position: absolute;
+    left: 85px;
+}
+.support {
+    position: relative;
+    bottom: -750px;
+    left: 600px;
+    width: 710px;
+}
+
+.need-help {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    background-color: #183459;
+    border-radius: 50px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.gmail {
+    position: relative;
+    left: 320px;
+}
