@@ -1,60 +1,142 @@
-<html>
-    <head>
-        <meta name="viewpoint" content="width=device-initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Menu</title>
-    </head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Menu - Fandom Squad</title>
+</head>
+<body>
 
-    <body>
-        <div class="header">
-            <p class="pagename">Welcome to Fandom-Squad</p>
-        </div>
+<header class="header">
+    <h1 class="pagename">Welcome to Fandom-Squad</h1>
+    <button id="boton-oscuro" class="dark-mode-btn">🌙 Modo Oscuro</button>
+</header>
 
-        <div class="starlight">
-            <p class="novedad">novedad</p>
+    <div class="main-container">
+        <aside class="starlight">
+            <h2 class="novedad">novedad</h2>
             <div class="starlight-logo">
-                <img src="Textures\Section.png" width="350" height="350">
+                <img src="Textures/Section.png" alt="Starlight Logo" width="350" height="350">
                 <p class="starlight-logo-text">Starlight: A.T.P</p>
             </div>
             <div class="plants-reference">
-                <img src="Textures\Plants.png" width="422" height="260">
+                <img src="Textures/Plants.png" alt="Plants Reference" width="325" height="250">
             </div>
-            <p class="question">Te gusta dibujo y personajes originales?</p>
-            <p class="Visit">Visita Starlight!</p>
+            <p class="question">¿Te gusta dibujo y personajes originales?</p>
+            <a href="#" class="visit-link">Visita Starlight!</a>
+        </aside>
+
+        <main class="side-menu">
+            <h2 class="recomendation">Recomendaciones</h2>
+            
+            <div class="gallery-grid">
+                
+                <section class="book-item la-daga">
+                    <img src="https://blogliterario.com/wp-content/uploads/2025/03/la-daga-sin-nombre-400.jpg" alt="La Daga Sin Nombre">
+                </section>
+
+                <section class="book-item norte">
+                    <img src="https://i.pinimg.com/1200x/c8/0c/da/c80cdadcd751796c69d7a892005b63fb.jpg" alt="Los Hombres del Norte">
+                </section>
+
+                <section class="book-item verano">
+                    <img src="https://img.wattpad.com/cover/255641533-256-k350011.jpg" alt="Hasta que el Verano se Acabe">
+                </section>
+
+                <section class="book-item jackson">
+                    <img src="https://tecniciencia.com/cdn/shop/files/9788419275738.jpg?height=720&v=1748831213" alt="Percy Jackson">
+                </section>
+
+                <section class="book-item assassins">
+                    <img src="https://tecniciencia.com/cdn/shop/files/9788445006566_01bfef16-aa4c-4568-8a1a-a7d79818052a.jpg?v=1747622076" alt="Assassin's Creed: Brotherhood">
+                </section>
+
+                <section class="book-item dc">
+                    <img src="https://m.media-amazon.com/images/I/9154OWx3vkL._SL1500_.jpg" alt="DC Kingdom Come">
+                </section>
+
+                <section class="book-item batman">
+                    <img src="https://static.dc.com/dc/files/default_images/BMJKWK_01_300-001_HD_5b7f187f0c3930.50204153.jpg?w=640" alt="Batman White Knight">
+                </section>
+
+                <section class="book-item avatar">
+                    <img src="https://i.pinimg.com/1200x/fc/3f/9c/fc3f9c0dcfe658b19f1b6bd95fed8cc0.jpg" alt="Avatar: La Busqueda">
+                </section>
+
+                <section class="book-item hellboy">
+                    <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1470965932i/31429948.jpg" alt="Hellboy: Into The Silent Sea">
+                </section>
+
+                <section class="book-item godzilla">
+                    <img src="https://m.media-amazon.com/images/I/61kgNs24YkL._SL1200_.jpg" alt="Godzilla">
+                </section>
+            </div> 
+        </main>
+    </div>
+    
+    <div class="second-page">
+        <p class="Starlight-text">Starlight</p>
+        <p class="Among">Among the Past</p>
+
+        <div class="introduction-to-page">
+            <p class="text1">Meet the Gang and the world around them, Face the Past and the bad apple's of the person you were before,can you beat and move on, or remain stuck in what where “happier” times..</p>
+            <p class="text2">That's, only something YOU can resolve *******.</p>
+            <p class="text3">See you soon...</p>
+        </div>
+            
+        <main class="Interactive-layout">
+            <p class="characters">characters</p>
+            <div class="plants-little-icon">
+                <img src="Textures\Plants(pagewip).png" width="384" height="384">
+            </div>
+            <p class="History">History</p>
+            </main>
+
+        <footer class="support">
+            <p class="need-help">Wanna ask me something? feel free to message me!</p>
+            <div class="gmail">
+                <img src="Textures\gmail-logo.png" width="70" height="70">
+            </div>
+        </footer>
+    </div>
+
+<div id="info-panel" class="info-side-panel">
+    <div class="panel-header">
+        <button class="close-panel-btn"> Volver </button>
+    </div>
+
+    <div class="panel-body">
+        <div class="panel-main-info">
+            <img id="panel-img" src="" alt="Portada Seleccionada">
+            <div class="text-content">
+                <h2 id="panel-title">Título</h2>
+                <p class="author-label">Autor de la obra</p>
+                <div class="stats-row">
+                    <span>👁️ 1.2k</span> <span>⭐ 4.5</span>
+                </div>
+            </div>
         </div>
 
-        <div class="side-menu">
-            <p class="recomendation">Recomendaciones</p>
-            <div class="la-daga">
-                <img src="Textures\image6.png" width="200" height="318">
+        <nav class="tabs-nav">
+            <button class="tab-link active" data-tab="tab-resumen">Resumen</button>
+            <button class="tab-link" data-tab="tab-partes">Partes</button>
+        </nav>
+
+        <div class="tabs-container">
+            <div id="tab-resumen" class="tab-content active">
+                <p id="panel-description">Sinopsis de la historia...</p>
+                <button id="start-reading-btn" class="read-now-btn">Leer ahora</button>
             </div>
-            <div class="norte">
-                <img src="Textures\image7.png" width="200" height="318">
-            </div>
-            <div class="verano">
-                <img src="Textures\image8.png" width="200" height="318">
-            </div>
-            <div class="jackson">
-                <img src="Textures\image9.png" width="200" height="318">
-            </div>
-            <div class="assasing">
-                <img src="Textures\image14.png" width="200" height="318">
-            </div>
-            <div class="dc">
-                <img src="Textures\image10.png" width="200" height="318">
-            </div>
-            <div class="batman">
-                <img src="Textures\image11.png" width="200" height="318">
-            </div>
-            <div class="avatar">
-                <img src="Textures\image12.png" width="200" height="318">
-            </div>
-            <div class="hellboy">
-                <img src="Textures\image13.png" width="200" height="318">
-            </div>
-            <div class="godzilla">
-                <img src="Textures\image15.png" width="200" height="318">
+            
+            <div id="tab-partes" class="tab-content">
+                <ul class="chapters-list">
+                    <li><span>1</span> Prólogo</li>
+                </ul>
             </div>
         </div>
-    </body>
+    </div>
+</div>
+    <script src="app.js"></script>
+</body>
 </html>
