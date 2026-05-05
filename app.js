@@ -33,3 +33,7 @@ portadas.forEach(portada => {
             }
         });
     }
+
+startlightbtn.addEventListener('click', () => (
+    change_page()
+))
