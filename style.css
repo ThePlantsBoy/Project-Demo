@@ -1,6 +1,6 @@
 :root {
     --bg-header: #8B008B;
-    --bg-main: #720041;
+    --bg-main: #ADFAC4;
     --bg-aside: #f0f0f0;
     --text-color: #000;
 }
@@ -117,6 +117,7 @@ body {
     gap: 25px;
     justify-items: center;
     padding: 20px;
+    flex: 50%;
 
 }
 
@@ -284,12 +285,18 @@ body {
     top: 30px;
 }
 
-#info-panel {
+.section2{
+    display: none;
+}
+.section3 {
     display: none;
 }
 
+#info-panel {
+    display:  block !important;
+}
+
 .info-side-panel {
-    display: block !important;
     position: fixed;
     right: -100%;
     top: 0;
@@ -303,10 +310,12 @@ body {
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
     overflow-y: auto;
     border-left: 4px solid var(--bg-header);
+    visibility: hidden;
 }
 
 .info-side-panel.active {
     right: 0;
+    visibility: visible;
 }
 
 .panel-main-info img {
@@ -374,4 +383,157 @@ body {
     height: 35px;
     cursor: pointer;
     z-index: 10;
+}
+
+.chapters-list {
+    margin-top: 15px;
+    list-style: none;
+}
+
+.chapter-item {
+    padding: 15px;
+    background: #252525;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.chapter-item:hover {
+    background: #333;
+    border-left: 4px solid var(--bg-header);
+    padding-left: 20px;
+}
+
+.chapter-item span {
+    color: var(--bg-header);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.starlight-logo-text2{
+    display: none;
+    flex: 30.5%;
+}
+
+.open-starlight{
+    display: none;
+    position: absolute;
+    top: 550px;
+    left: 10px;
+    width: 40px;
+    justify-content: center;
+    background-color: #8B008B;
+}
+.close-starlight{
+    display: none;
+    position: absolute;
+    top: 550px;
+    left: 360px;
+    height: 20px;
+    width: 40px;
+    justify-content: center;
+    background-color: #8B008B;
+}
+
+@media (orientation: portrait) and (max-width: 1500px) {
+    .section2 {
+        display: flex;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 280px;
+        top: 35px;
+    }
+    
+    .section3{
+        display: none;
+    }
+
+    .starlight-logo-text2{
+        display: block;
+        position: absolute;
+        font-weight: 600;
+        height: 50px;
+        width: 120px;
+        left: 320px;
+        top: 146px;
+        font-size: 15px;
+    }
+    .starlight-logo-text2:hover{
+        cursor: pointer;
+        color: green;
+    }
+
+    .pagename {
+        font-size: 20px;
+        width: 500px;
+    }
+
+    .recomendation{
+        font-size: 20px;
+    }
+    
+    .starlight{
+        display: none;
+    }
+
+    .dark-mode-btn{
+        width: 80px;
+        height: 50px;
+        font-size: 10px;
+        flex: auto;
+    }
+
+    body{
+        overflow: scroll
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1000px) {
+    .starlight-logo-text2{
+        display: none;
+        position: absolute;
+        font-weight: 600;
+        height: 50px;
+        width: 120px;
+        left: 320px;
+        top: 144px;
+    }
+    .starlight-logo-text2:hover{
+        cursor: pointer;
+        color: green;
+    }
+
+    .pagename {
+        font-size: 25px;
+        width: 400px;
+    }
+
+    .recomendation{
+        font-size: 20px;
+    }
+    
+    .starlight{
+        display: none;
+    }
+
+    .dark-mode-btn{
+        width: 80px;
+        height: 50px;
+        font-size: 10px;
+        flex: auto;
+    }
+
+    body{
+        overflow: scroll
+    }
+
+    .open-starlight{
+    display: flex;
+}
+    .open-starlight:hover{
+        cursor: pointer;
+    }
 }
