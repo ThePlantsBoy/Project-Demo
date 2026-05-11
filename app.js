@@ -1,3 +1,4 @@
+const sidemenu = document.querySelector(".side-menu")
 const portadas = document.querySelectorAll('.book-item img');
 const btnOscuro = document.getElementById('boton-oscuro');
 const startlightbtn = document.querySelector('.visit-link')
@@ -96,6 +97,12 @@ document.querySelector('.starlight-logo-text2').onclick = (e) => {
     document.querySelector('.header').style.display = "none";
     body.style.backgroundColor = '#ADFAC4'
 };
+document.querySelector('.return-to-menu').onclick = (e) => {
+    e.preventDefault();
+    document.querySelector('.second-page').style.display = "none";
+    document.querySelector('.main-container').style.display = "flex";
+    document.querySelector('.header').style.display = "flex";
+};
 
 document.querySelector('.open-starlight').onclick = (e) => {
     document.querySelector('.starlight').style.display = "flex";
@@ -107,3 +114,4 @@ document.querySelector('.close-starlight').onclick = (e) => {
     document.querySelector('.open-starlight').style.display = "flex";
     document.querySelector('.close-starlight').style.display = "none";
 }
+
