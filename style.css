@@ -199,7 +199,7 @@ body {
 }
 
 .introduction-to-page {
-    background-color: #183459;
+    background-color: #8B008B;
     border-radius: 50px;
     position: absolute;
     margin: 40px;
@@ -245,7 +245,7 @@ body {
     top: 50px;
     padding: 50px;
     border-radius: 50px;
-    background-color: #42A468;
+    background-color: #8B008B;
 }
 .History {
     font-size: 70px;
@@ -254,7 +254,7 @@ body {
     top: 50px;
     padding: 50px;
     border-radius: 50px;
-    background-color: #42A468;
+    background-color: #8B008B;
 }
 .plants-little-icon {
     position: absolute;
@@ -272,7 +272,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: 400;
-    background-color: #183459;
+    background-color: #8B008B;
     border-radius: 50px;
     padding-left: 5px;
     padding-bottom: 10px;
