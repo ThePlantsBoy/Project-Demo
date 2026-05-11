@@ -437,7 +437,30 @@ body {
     background-color: #8B008B;
 }
 
-@media (orientation: portrait) and (max-width: 1500px) {
+.close-starlight.active{
+    display: flex;
+}
+.open-starlight.active{
+    display: flex;
+}
+
+.return-to-menu {
+    background-color: #8B008B;
+    border-radius: 15px;
+    font-size: 25px;
+    width: 120px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.return-to-menu:hover{
+    cursor: pointer;
+}
+
+
+
+@media screen and (orientation: portrait) {
     .section2 {
         display: flex;
         position: absolute;
@@ -491,7 +514,7 @@ body {
     }
 }
 
-@media (orientation: landscape) and (max-width: 1000px) {
+@media (orientation: landscape) and (min-width: 768px) {
     .starlight-logo-text2{
         display: none;
         position: absolute;
@@ -536,4 +559,103 @@ body {
     .open-starlight:hover{
         cursor: pointer;
     }
+}
+
+@media (orientation: portrait) and (min-width: 360px) {
+    body {
+        width: 360px;
+        height: 740px;
+        overflow: scroll;
+    }
+    
+    .second-page {
+        position: absolute;
+        left: -100px;
+        width: 20px;
+        height: 50px;
+    }
+
+    .Starlight-text{
+        position: absolute;
+        left: 300px;
+        top: 4px;
+        font-size: 29px;
+        width: 20px;
+    }
+
+    .Among{
+        position: absolute;
+        left: 250px;
+        top: 45px;
+        font-size: 29px;
+        width: 350px;
+        flex: 1 1 100%;
+    }
+
+    .introduction-to-page{
+        width: 500px;
+        height: 150px;
+        left: 79px;
+        top: 100px;
+    }
+    
+    .text1{
+        font-size: 15px;
+    }
+    .text2{
+        font-size: 15px;
+    }
+    .text3{
+        font-size: 15px;
+    }
+
+    .Interactive-layout{
+        position: absolute;
+        width: 50px;
+        left: 160px;
+        top: 250px;
+    }
+
+    .characters{
+        position: absolute;
+        left: -10px;
+        top: 100px;
+        width: 90px;
+        font-size: 25px;
+    }
+
+    .History{
+        position: absolute;
+        font-size: 25px;
+        left: 250px;
+        top: 100px;
+    }
+
+    .plants-little-icon img {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 200px;
+        left: -15px;
+    }
+    
+    .support{
+        position: absolute;
+        left: 30px;
+        top: 750px;
+        height: 20px;
+        width: 50px;
+    }
+
+    .need-help{
+        width: 500px;
+        font-size: 20px;
+        position: relative;
+        left: 90px;
+    }
+
+    .gmail {
+    position: relative;
+    left: 315px;
+}
 }
