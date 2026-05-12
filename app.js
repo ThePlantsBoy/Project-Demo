@@ -1,125 +1,165 @@
-const sidemenu = document.querySelector(".side-menu")
-const portadas = document.querySelectorAll('.book-item img');
-const btnOscuro = document.getElementById('boton-oscuro');
-const startlightbtn = document.querySelector('.visit-link')
-const secondpage = document.querySelector('.second-page')
-const maincontainer = document.querySelector('.main-container')
-const body = document.querySelector('body')
-const header = document.querySelector('.header')
 const bdComics = {
-    "la-daga": { titulo: "La Daga Sin Nombre", descripcion: "Un arma ancestral...", capitulos: ["Prólogo", "Capítulo 1", "Capítulo 2"] },
-    "norte": { titulo: "Los Hombres del Norte", descripcion: "Crónicas de guerra...", capitulos: ["Tierras de Hielo", "El Clan del Lobo"] },
-    "verano": { titulo: "Hasta que el Verano se Acabe", descripcion: "Una historia sobre promesas...", capitulos: ["Junio", "Julio", "Agosto"] },
-    "jackson": { titulo: "Percy Jackson", descripcion: "Un joven descubre...", capitulos: ["Profesora vaporizada", "Mi padre es un Dios"] },
-    "assassins": { titulo: "Assassin's Creed", descripcion: "Ezio viaja a Roma...", capitulos: ["Renacimiento", "La Hermandad"] },
-    "dc": { titulo: "DC: Kingdom Come", descripcion: "Futuro de héroes...", capitulos: ["Extraños Visitantes", "Justicia Absoluta"] },
-    "batman": { titulo: "Batman: White Knight", descripcion: "¿Joker curado?", capitulos: ["Cura Milagrosa", "Jack Napier"] },
-    "avatar": { titulo: "Avatar: La Búsqueda", descripcion: "Zuko busca a su madre...", capitulos: ["Parte 1", "Parte 2", "Parte 3"] },
-    "hellboy": { titulo: "Hellboy", descripcion: "Barco fantasma...", capitulos: ["El Barco", "Abismos"] },
-    "godzilla": { titulo: "Godzilla", descripcion: "Rey de los Monstruos...", capitulos: ["Monarca", "Ruinas", "El Rey"] }
-};
-
-const panel = document.getElementById('info-panel');
-const panelImg = document.getElementById('panel-img');
-const panelTitle = document.getElementById('panel-title');
-const panelDesc = document.getElementById('panel-description');
-const listaCaps = document.querySelector('.chapters-list');
-const btnLeerAhora = document.getElementById('start-reading-btn');
-let comicSeleccionadoId = null;
-
-document.querySelectorAll('.tab-link').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab-link, .tab-content').forEach(el => el.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-    });
-});
-
-document.querySelectorAll('.book-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        if(e.target.classList.contains('fav-btn')) {
-            e.target.classList.toggle('active');
-            e.target.style.color = e.target.classList.contains('active') ? "black" : "gold";
-    e.target.style.background = e.target.classList.contains('active') ? "gold" : "rgba(0,0,0,0.7)";
-            return;
-
-        }
-        const id = item.getAttribute('data-id'); 
-        const info = bdComics[id];
-        if(info) {
-            comicSeleccionadoId = id;
-            panelImg.src = item.querySelector('img').src;
-            panelTitle.textContent = info.titulo;
-            panelDesc.textContent = info.descripcion;
-            
-            listaCaps.innerHTML = "";
-            info.capitulos.forEach((cap, index) => {
-                const li = document.createElement('li');
-                li.className = 'chapter-item';
-                li.innerHTML = `<span>${index + 1}</span> ${cap}`;
-                li.onclick = () => iniciarLectura(id, index);
-                listaCaps.appendChild(li);
-            });
-            panel.classList.add('active');
-        }
-    });
-});
-
-function iniciarLectura(id, indiceCap) {
-    localStorage.setItem(`progreso_${id}`, indiceCap);
-    alert(`📖 Leyendo: ${bdComics[id].titulo} - ${bdComics[id].capitulos[indiceCap]}`);
-}
-
-btnLeerAhora.onclick = () => {
-    if(comicSeleccionadoId) {
-        const guardado = localStorage.getItem(`progreso_${comicSeleccionadoId}`) || 0;
-        iniciarLectura(comicSeleccionadoId, parseInt(guardado));
+    "Tortugas": { 
+        titulo: "Tortugas Ninja: El Ultimo Ronin", 
+        autor: "Kevin Eastman",
+        sinopsis: "En una futura ciudad de Nueva York, una tortuga sobreviviente busca justicia para su familia caída...",
+        capitulos: ["Capítulo 1", "Capítulo 2", "Capítulo 3", "Capítulo 4 Final"],
+        links: [
+            "https://drive.google.com/file/d/1B9pWtYNDJxbow2o0B6C1JKEN-Wicq0tG/preview",
+            "https://drive.google.com/file/d/14aCJhtPK-X2PT0-WTqKxkuRXWWQjlXQp/preview",
+            "https://drive.google.com/file/d/1w_VfnbNZDjw7ZsSNm40a47ibHDIShGnR/preview",
+            "https://drive.google.com/file/d/1IcuW_aEj8UX3yY2OLYJzdfpSwX1vgSPN/preview"
+        ]
+    },
+    "Llanero": { 
+        titulo: "El Llanero Solitario", 
+        autor: "Mark Russell y Bob Q",
+        sinopsis: "El hombre enmascarado y Toro cabalgan de nuevo buscando justicia en el viejo oeste.",
+        capitulos: ["Cap 1", "Cap 2", "Cap 3", "Cap 4", "Cap 5"],
+        links: [
+            "https://drive.google.com/file/d/1Kj98bLvpDQczIWy8JViN-vuWMB4Gr-X3/preview",
+            "https://drive.google.com/file/d/1WaIkdqV5qxm_30RPgfI158Yu-dfwxMXM/preview",
+            "https://drive.google.com/file/d/18XB_-MCEy_vyBbAJbFuM4Gpzb5AkYumq/preview",
+            "https://drive.google.com/file/d/1qr6Wxw7B2K2zB711A-G9qcY0KPUID1Xu/preview",
+            "https://drive.google.com/file/d/1yfB5bNjWi75i6BI8PXhJXyd5Xa1mFHJ8/preview"
+        ]
+    },
+    "Ghostbusters": { 
+        titulo: "Ghostbusters: Año Uno", 
+        autor: "Erik Burnham",
+        sinopsis: "Historias inéditas del primer año de los chicos de gris tras su gran hazaña en NY.",
+        capitulos: ["Cap 1", "Cap 2", "Cap 3", "Cap 4"],
+        links: [
+            "https://drive.google.com/file/d/1dtnfql6O_nNQXeCvs0P6P58aIozcLg0f/preview",
+            "https://drive.google.com/file/d/1twWyZrtjLKPT0NveMni6tOFm-7UdlGtN/preview",
+            "https://drive.google.com/file/d/1VsdA8yp_dxKXyc6jRxEnvr0fZYbniiDd/preview",
+            "https://drive.google.com/file/d/1G933iHZCaZczod_NMLFhtHa1sozjEjYH/preview"
+        ]
+    },
+    "Ben 10": { 
+        titulo: "Ben 10", 
+        autor: "Joe Casey",
+        sinopsis: "¡Ben Tennyson descubre el Omnitrix! Una nueva versión del héroe del siglo 21.",
+        capitulos: ["Capítulo Único"],
+        links: ["https://drive.google.com/file/d/19q_vRwlqEGqdsNtuzIPDpZNkyZ4eit3H/preview"]
+    },
+    "Godzilla": { 
+        titulo: "Godzilla Aftershock", 
+        autor: "Arvid Nelson",
+        sinopsis: "Godzilla enfrenta a MUTO Prime en esta precuela de King of the Monsters.",
+        capitulos: ["Capítulo Único"],
+        links: ["https://drive.google.com/file/d/1aZ5dP9XeY04IN4paIYcgGoyKAurSJje3/preview"]
+    },
+    "Batman": { 
+        titulo: "Batman White Knight", 
+        autor: "Sean Murphy",
+        sinopsis: "¿Y si el Joker se curara y Batman fuera el villano?",
+        capitulos: ["Cap 1", "Cap 2", "Cap 3", "Cap 4", "Cap 5", "Cap 6", "Cap 7", "Cap 8"],
+        links: [
+            "https://drive.google.com/file/d/1yJ3ML08FEzjHyUherR_Loi9O-c1oogUL/preview",
+            "https://drive.google.com/file/d/1jI0VKBFpgIh3vrG2037mOxfDzZ5G1v6J/preview",
+            "https://drive.google.com/file/d/1688zXUjI4ZPnnVMU-wXKEDcxkcKBn_vv/preview",
+            "https://drive.google.com/file/d/1J92nuH1xrNq-Y2ZJCDBeAgGKzVbnkHTC/preview",
+            "https://drive.google.com/file/d/10INkONoPkY7Dg4RYF-VzcL1OXqA9k1yl/preview",
+            "https://drive.google.com/file/d/17QK79K3DCr4vTzyPznpEiHhv5TAoLpNL/preview",
+            "https://drive.google.com/file/d/15vJAnM6rB0YDYE9UmHhl5zDPbVu59els/preview",
+            "https://drive.google.com/file/d/1CMg0MLQUrkpryC1l9CsWV-q6TgOSyNaR/preview"
+        ]
+    },
+    "Hellboy": { 
+        titulo: "Hellboy y el B.P.R.D.", 
+        autor: "Mike Mignola",
+        sinopsis: "Una ciudad invadida por fantasmas y una agente desaparecida en Labrador.",
+        capitulos: ["Cap 1", "Cap 2"],
+        links: [
+            "https://drive.google.com/file/d/1fjbqrJfz5v8OUi1fenCxY-NyG-2quLF_/preview",
+            "https://drive.google.com/file/d/1uKqMPWqmHVCQic8XpKUq2vG4ECIboRn1/preview"
+        ]
+    },
+    "Dungeons": { 
+        titulo: "D&D: El Festival de la Luna", 
+        autor: "Jeremy Lambert",
+        sinopsis: "Precuela oficial de Honor entre Ladrones. Edgin y su equipo en problemas.",
+        capitulos: ["Capítulo 1"],
+        links: ["https://drive.google.com/file/d/1-HDEK9-QTWVwbltb1-cHLF1da1_3Dg1M/preview"]
+    },
+    "Scrooge": { 
+        titulo: "Scrooge McDuck: El Dragón de Glasgow", 
+        autor: "Joris Chamblain",
+        sinopsis: "La infancia de Scrooge en las minas de Escocia.",
+        capitulos: ["Capítulo 1"],
+        links: ["https://drive.google.com/file/d/1XwBk95i6o0cqqpI6ZT8f0iQLqfDROmpx/preview"]
+    },
+    "Korra": { 
+        titulo: "The Legend of Korra: Turf Wars", 
+        autor: "Michael Dante DiMartino",
+        sinopsis: "Korra y Asami regresan del mundo espiritual para enfrentar el caos en Ciudad República.",
+        capitulos: ["Parte 1", "Parte 2", "Parte 3"],
+        links: ["https://drive.google.com/file/d/1bLGNq9j6MPl4ZeUfXjejOdUHxEz-o65H/preview",
+        "https://drive.google.com/file/d/1Dr-BRtyOV6VIo4K4bJvVXchmFx4adInP/preview",
+        "https://drive.google.com/file/d/12B1VjFI8uaUXHppnr4gAn9O2vj4LA_2j/preview"]
     }
 };
 
+
+const panel = document.getElementById('info-panel');
+const reader = document.getElementById('reading-overlay');
+const pdfViewer = document.getElementById('pdf-viewer');
+
+
+document.querySelectorAll('.book-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        if(e.target.classList.contains('fav-btn')) return;
+        
+        const id = item.dataset.id;
+        const info = bdComics[id];
+        if(!info) return;
+
+        document.getElementById('panel-img').src = item.querySelector('img').src;
+        document.getElementById('panel-title').textContent = info.titulo;
+        document.getElementById('panel-author').textContent = info.autor;
+        document.getElementById('panel-description').textContent = info.sinopsis;
+        
+        const lista = document.querySelector('.chapters-list');
+        lista.innerHTML = "";
+        info.capitulos.forEach((cap, i) => {
+            const li = document.createElement('li');
+            li.className = "chapter-item";
+            li.innerHTML = `<span>${i+1}</span> ${cap}`;
+            li.onclick = () => abrirLector(id, i);
+            lista.appendChild(li);
+        });
+
+        panel.dataset.currentId = id;
+        panel.classList.add('active');
+    });
+});
+
+
+function abrirLector(id, index) {
+    const comic = bdComics[id];
+    if(comic.links[index] === "#") return alert("PDF no disponible aún.");
+    
+    document.getElementById('reading-title').textContent = `${comic.titulo} - ${comic.capitulos[index]}`;
+    pdfViewer.src = comic.links[index];
+    reader.classList.remove('hidden');
+    localStorage.setItem(`progreso_${id}`, index);
+}
+
+
+document.getElementById('close-reader').onclick = () => {
+    reader.classList.add('hidden');
+    pdfViewer.src = "";
+};
 document.querySelector('.close-panel-btn').onclick = () => panel.classList.remove('active');
 
-document.getElementById('boton-oscuro').onclick = () => {
-    document.body.classList.toggle('dark-mode');
+
+document.getElementById('start-reading-btn').onclick = () => {
+    const id = panel.dataset.currentId;
+    const save = localStorage.getItem(`progreso_${id}`) || 0;
+    abrirLector(id, parseInt(save));
 };
 
-document.querySelector('.visit-link').onclick = (e) => {
-    e.preventDefault();
-    document.querySelector('.second-page').style.display = "block";
-    document.querySelector('.main-container').style.display = "none";
-    document.querySelector('.header').style.display = "none";
-    body.style.backgroundColor = '#ADFAC4'
-};
-document.querySelector('.starlight-logo-text2').onclick = (e) => {
-    e.preventDefault();
-    document.querySelector('.second-page').style.display = "block";
-    document.querySelector('.main-container').style.display = "none";
-    document.querySelector('.header').style.display = "none";
-    body.style.backgroundColor = '#ADFAC4'
-};
-document.querySelector('.return-to-menu').onclick = (e) => {
-    e.preventDefault();
-    document.querySelector('.second-page').style.display = "none";
-    document.querySelector('.main-container').style.display = "flex";
-    document.querySelector('.header').style.display = "flex";
-};
 
-document.querySelector('.open-starlight').onclick = (e) => {
-    document.querySelector('.starlight').style.display = "flex";
-    document.querySelector('.open-starlight').style.display = "none";
-    document.querySelector('.close-starlight').style.display = "flex";
-}
-document.querySelector('.close-starlight').onclick = (e) => {
-    document.querySelector('.starlight').style.display = "none";
-    document.querySelector('.open-starlight').style.display = "flex";
-    document.querySelector('.close-starlight').style.display = "none";
-}
-document.querySelector('.starlight-logo-text').onclick = (e) => {
-    e.preventDefault();
-    document.querySelector('.second-page').style.display = "block";
-    document.querySelector('.main-container').style.display = "none";
-    document.querySelector('.header').style.display = "none";
-    body.style.backgroundColor = '#ADFAC4'
-};
-
+document.getElementById('boton-oscuro').onclick = () => document.body.classList.toggle('dark-mode');
 
