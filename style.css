@@ -58,7 +58,7 @@ body {
 }
 
 .starlight {
-    background-image: url("Textures\background.png");
+    background-image: url("Textures/background.png");
     background-size: cover;
     background-color: var(--bg-aside);
     color: var(--text-color);
