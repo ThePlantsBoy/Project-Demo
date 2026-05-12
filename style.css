@@ -71,6 +71,9 @@ body {
 }
 
 .novedad {
+    font-family: "Jaro", sans-serif;
+    font-weight: 700;
+    font-style: italic;
     font-size: 40px;
     margin-bottom: 20px;
     text-align: center;
@@ -82,8 +85,13 @@ body {
 }
 
 .starlight-logo-text {
+    font-family: "Jaro", sans-serif;
+    font-style: italic;
+    position: absolute;
+    top: 335px;
+    left: 85px;
     font-size: 25px;
-    font-weight: 200;
+    font-weight: 700;
     text-align: center;
     margin: 10px 0;
 }
@@ -91,6 +99,17 @@ body {
 .starlight-logo-text:hover {
     cursor: pointer;
     color: #8B008B;
+}
+
+.question {
+    font-family: "Jaro", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+.visit-link {
+    font-family: "Jaro", sans-serif;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .side-menu {
@@ -101,9 +120,11 @@ body {
 }
 
 .recomendation {
-    background-color: #DA8585;
+    background-color: none;
+    font-family: "Jaro", sans-serif;
+    font-style: italic;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 10px 20px;
     border: 5px solid black;
     border-radius: 10px;
@@ -179,17 +200,17 @@ body {
 }
 
 .Starlight-text{
-    font-family: 'Courier New', Courier, monospace;
-    font-style: normal;
+    font-family: "Jaro", sans-serif;
+    font-style: italic;
     font-size: 40px;
     font-weight: 700;
     position: absolute;
-    right: 825px;
+    right: 850px;
     top: 5px;
 }
 
 .Among{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Jaro", sans-serif;
     font-style: normal;
     font-size: 40px;
     font-weight: 700;
@@ -209,22 +230,22 @@ body {
 }
 
 .text1 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Jaro", sans-serif;
     font-weight: 700;
     font-size: 25px;
     padding: 15px;
     margin: 5px;
 }
 .text2 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Jaro", sans-serif;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 15px;
     position: relative;
     text-align: center;
     left: 20px;
 }
 .text3 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Jaro", sans-serif;
     font-weight: 700;
     position: relative;
     text-align: center;
@@ -269,9 +290,9 @@ body {
 }
 
 .need-help {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Jaro", sans-serif;
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 700;
     background-color: #8B008B;
     border-radius: 50px;
     padding-left: 5px;
@@ -657,5 +678,6 @@ body {
     .gmail {
     position: relative;
     left: 315px;
+}
 }
 }
