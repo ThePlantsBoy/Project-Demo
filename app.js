@@ -114,4 +114,12 @@ document.querySelector('.close-starlight').onclick = (e) => {
     document.querySelector('.open-starlight').style.display = "flex";
     document.querySelector('.close-starlight').style.display = "none";
 }
+document.querySelector('.starlight-logo-text').onclick = (e) => {
+    e.preventDefault();
+    document.querySelector('.second-page').style.display = "block";
+    document.querySelector('.main-container').style.display = "none";
+    document.querySelector('.header').style.display = "none";
+    body.style.backgroundColor = '#ADFAC4'
+};
+
 
