@@ -39,14 +39,14 @@ const bdComics = {
     "Ben 10": { 
         titulo: "Ben 10", 
         autor: "Joe Casey",
-        sinopsis: "¡Ben Tennyson descubre el Omnitrix! Una nueva versión del héroe del siglo 21.",
+        sinopsis: "¡Ben Tennyson descubre el Omnitrix! Una nueva versión del héroe.",
         capitulos: ["Capítulo Único"],
         links: ["https://drive.google.com/file/d/19q_vRwlqEGqdsNtuzIPDpZNkyZ4eit3H/preview"]
     },
     "Godzilla": { 
         titulo: "Godzilla Aftershock", 
         autor: "Arvid Nelson",
-        sinopsis: "Godzilla enfrenta a MUTO Prime en esta precuela de King of the Monsters.",
+        sinopsis: "Godzilla enfrenta a MUTO Prime en esta precuela.",
         capitulos: ["Capítulo Único"],
         links: ["https://drive.google.com/file/d/1aZ5dP9XeY04IN4paIYcgGoyKAurSJje3/preview"]
     },
@@ -69,7 +69,7 @@ const bdComics = {
     "Hellboy": { 
         titulo: "Hellboy y el B.P.R.D.", 
         autor: "Mike Mignola",
-        sinopsis: "Una ciudad invadida por fantasmas y una agente desaparecida en Labrador.",
+        sinopsis: "Una ciudad invadida por fantasmas y una agente desaparecida.",
         capitulos: ["Cap 1", "Cap 2"],
         links: [
             "https://drive.google.com/file/d/1fjbqrJfz5v8OUi1fenCxY-NyG-2quLF_/preview",
@@ -79,7 +79,7 @@ const bdComics = {
     "Dungeons": { 
         titulo: "D&D: El Festival de la Luna", 
         autor: "Jeremy Lambert",
-        sinopsis: "Precuela oficial de Honor entre Ladrones. Edgin y su equipo en problemas.",
+        sinopsis: "Precuela oficial de Honor entre Ladrones.",
         capitulos: ["Capítulo 1"],
         links: ["https://drive.google.com/file/d/1-HDEK9-QTWVwbltb1-cHLF1da1_3Dg1M/preview"]
     },
@@ -92,74 +92,157 @@ const bdComics = {
     },
     "Korra": { 
         titulo: "The Legend of Korra: Turf Wars", 
-        autor: "Michael Dante DiMartino",
-        sinopsis: "Korra y Asami regresan del mundo espiritual para enfrentar el caos en Ciudad República.",
+        autor: "Michael Dante DiAvatar",
+        sinopsis: "Korra y Asami regresan del mundo espiritual.",
         capitulos: ["Parte 1", "Parte 2", "Parte 3"],
-        links: ["https://drive.google.com/file/d/1bLGNq9j6MPl4ZeUfXjejOdUHxEz-o65H/preview",
-        "https://drive.google.com/file/d/1Dr-BRtyOV6VIo4K4bJvVXchmFx4adInP/preview",
-        "https://drive.google.com/file/d/12B1VjFI8uaUXHppnr4gAn9O2vj4LA_2j/preview"]
+        links: [
+            "https://drive.google.com/file/d/1bLGNq9j6MPl4ZeUfXjejOdUHxEz-o65H/preview",
+            "https://drive.google.com/file/d/1Dr-BRtyOV6VIo4K4bJvVXchmFx4adInP/preview",
+            "https://drive.google.com/file/d/12B1VjFI8uaUXHppnr4gAn9O2vj4LA_2j/preview"
+        ]
     }
 };
 
-
-const panel = document.getElementById('info-panel');
+const starlightPanel = document.getElementById('starlight-panel');
+const infoPanel = document.getElementById('info-panel');
 const reader = document.getElementById('reading-overlay');
 const pdfViewer = document.getElementById('pdf-viewer');
+const mainTitle = document.getElementById('main-title');
+const btnBackMenu = document.getElementById('btn-back-menu');
 
+let currentComicId = "";
+let currentCapIndex = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarFavoritosStorage();
+});
+
+document.getElementById('logo-home').onclick = () => location.reload();
+
+document.getElementById('btn-starlight-toggle').onclick = (e) => {
+    e.stopPropagation();
+    starlightPanel.classList.toggle('hidden-panel');
+    infoPanel.classList.remove('active');
+};
+
+document.getElementById('btn-favs-toggle').onclick = () => mostrarFavoritos();
+
+document.getElementById('btn-back-menu').onclick = () => {
+    mainTitle.textContent = "Recomendaciones";
+    btnBackMenu.classList.add('hidden');
+    document.querySelectorAll('.book-item').forEach(item => item.classList.remove('hidden'));
+};
 
 document.querySelectorAll('.book-item').forEach(item => {
     item.addEventListener('click', (e) => {
         if(e.target.classList.contains('fav-btn')) return;
-        
         const id = item.dataset.id;
-        const info = bdComics[id];
-        if(!info) return;
-
-        document.getElementById('panel-img').src = item.querySelector('img').src;
-        document.getElementById('panel-title').textContent = info.titulo;
-        document.getElementById('panel-author').textContent = info.autor;
-        document.getElementById('panel-description').textContent = info.sinopsis;
-        
-        const lista = document.querySelector('.chapters-list');
-        lista.innerHTML = "";
-        info.capitulos.forEach((cap, i) => {
-            const li = document.createElement('li');
-            li.className = "chapter-item";
-            li.innerHTML = `<span>${i+1}</span> ${cap}`;
-            li.onclick = () => abrirLector(id, i);
-            lista.appendChild(li);
-        });
-
-        panel.dataset.currentId = id;
-        panel.classList.add('active');
+        abrirPanelInfo(id, item.querySelector('img').src);
     });
 });
 
+function abrirPanelInfo(id, imgSrc) {
+    const info = bdComics[id];
+    currentComicId = id;
+    document.getElementById('panel-img').src = imgSrc;
+    document.getElementById('panel-title').textContent = info.titulo;
+    document.getElementById('panel-author').textContent = info.autor;
+    document.getElementById('panel-description').textContent = info.sinopsis;
+    
+    const lista = document.querySelector('.chapters-list');
+    lista.innerHTML = "";
+    info.capitulos.forEach((cap, i) => {
+        const li = document.createElement('li');
+        li.className = "chapter-item";
+        li.innerHTML = `<span>${i+1}</span> ${cap}`;
+        li.onclick = () => abrirLector(id, i);
+        lista.appendChild(li);
+    });
+
+    infoPanel.classList.add('active');
+    starlightPanel.classList.add('hidden-panel');
+}
 
 function abrirLector(id, index) {
     const comic = bdComics[id];
-    if(comic.links[index] === "#") return alert("PDF no disponible aún.");
+    currentComicId = id;
+    currentCapIndex = index;
     
+    localStorage.setItem(`last_comic`, id);
+    localStorage.setItem(`last_cap_${id}`, index);
+
     document.getElementById('reading-title').textContent = `${comic.titulo} - ${comic.capitulos[index]}`;
     pdfViewer.src = comic.links[index];
     reader.classList.remove('hidden');
-    localStorage.setItem(`progreso_${id}`, index);
 }
 
+document.getElementById('start-reading-btn').onclick = () => {
+    const lastCap = localStorage.getItem(`last_cap_${currentComicId}`) || 0;
+    abrirLector(currentComicId, parseInt(lastCap));
+};
 
+document.getElementById('next-cap').onclick = () => {
+    const comic = bdComics[currentComicId];
+    if(currentCapIndex < comic.links.length - 1) abrirLector(currentComicId, currentCapIndex + 1);
+};
+document.getElementById('prev-cap').onclick = () => {
+    if(currentCapIndex > 0) abrirLector(currentComicId, currentCapIndex - 1);
+};
+
+document.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.onclick = (e) => {
+        e.stopPropagation();
+        const id = btn.closest('.book-item').dataset.id;
+        const esFav = btn.innerHTML === "🌟";
+        btn.innerHTML = esFav ? "⭐" : "🌟";
+        
+        let favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
+        if (!esFav) {
+            if (!favs.includes(id)) favs.push(id);
+        } else {
+            favs = favs.filter(f => f !== id);
+        }
+        localStorage.setItem('fandom_favs', JSON.stringify(favs));
+    };
+});
+
+function cargarFavoritosStorage() {
+    const favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
+    document.querySelectorAll('.book-item').forEach(item => {
+        if (favs.includes(item.dataset.id)) item.querySelector('.fav-btn').innerHTML = "🌟";
+    });
+}
+
+function mostrarFavoritos() {
+    const favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
+    mainTitle.textContent = "Favoritos ⭐";
+    btnBackMenu.classList.remove('hidden');
+    document.querySelectorAll('.book-item').forEach(item => {
+        item.classList.toggle('hidden', !favs.includes(item.dataset.id));
+    });
+}
+
+window.onclick = function(event) {
+    if (infoPanel.classList.contains('active') && !infoPanel.contains(event.target) && !event.target.closest('.book-item')) {
+        infoPanel.classList.remove('active');
+    }
+    if (!starlightPanel.classList.contains('hidden-panel') && !starlightPanel.contains(event.target) && event.target.id !== 'btn-starlight-toggle') {
+        starlightPanel.classList.add('hidden-panel');
+    }
+};
+
+document.getElementById('close-info').onclick = () => infoPanel.classList.remove('active');
 document.getElementById('close-reader').onclick = () => {
     reader.classList.add('hidden');
     pdfViewer.src = "";
 };
-document.querySelector('.close-panel-btn').onclick = () => panel.classList.remove('active');
-
-
-document.getElementById('start-reading-btn').onclick = () => {
-    const id = panel.dataset.currentId;
-    const save = localStorage.getItem(`progreso_${id}`) || 0;
-    abrirLector(id, parseInt(save));
-};
-
 
 document.getElementById('boton-oscuro').onclick = () => document.body.classList.toggle('dark-mode');
 
+document.querySelectorAll('.tab-link').forEach(tab => {
+    tab.onclick = () => {
+        document.querySelectorAll('.tab-link, .tab-content').forEach(el => el.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    };
+});
