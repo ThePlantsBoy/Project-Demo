@@ -4,124 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Menu - Fandom Squad</title>
+    <title>Fandom Squad - Menu</title>
 </head>
 <body>
 
 <header class="header">
-    <h1 class="pagename">Welcome to Fandom-Squad</h1>
-    <button id="boton-oscuro" class="dark-mode-btn">🌙 Modo Oscuro</button>
+    <button id="btn-starlight-toggle" class="custom-btn">✨ Starlight</button>
+    <h1 class="pagename" id="logo-home">Fandom-Squad</h1>
+    <div class="header-btns">
+        <button id="btn-favs-toggle" class="custom-btn">⭐ Favoritos</button>
+        <button id="boton-oscuro" class="custom-btn">🌙</button>
+    </div>
 </header>
 
-    <div class="main-container">
-        <aside class="starlight">
-            <h2 class="novedad">novedad</h2>
-            <div class="starlight-logo">
-                <img src="Textures/Section.png" alt="Starlight Logo" width="350" height="350">
-                <p class="starlight-logo-text">Starlight: A.T.P</p>
-            </div>
-            <div class="plants-reference">
-                <img src="Textures/Plants.png" alt="Plants Reference" width="325" height="250">
-            </div>
-            <p class="question">¿Te gusta dibujo y personajes originales?</p>
-            <a href="#" class="visit-link">Visita Starlight!</a>
-        </aside>
-
-        <main class="side-menu">
-            <h2 class="recomendation">Recomendaciones</h2>
-            
-             <div class="gallery-grid">
-                <section class="book-item" data-id="Tortugas">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6415d34ae0e09/1f0856ba84039736aa5ed1c2df0b1e11/Teenage-Mutant-Ninja-Turtles---The-Last-Ronin-001-(2020)-(Digital)-(Mephisto-Empire)-001.jpg" alt="Tortugas Ninja: El Ultimo Ronin">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Ghostbusters">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_651ad978c522c/90609243eb72146914b0718df5da8711/Ghostbusters---A%C3%B1o-Uno-01-(de-04)-000.jpg" alt="Ghostbusters: Año Uno">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Scrooge">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64e32076b1359/bfb63ef0d693a217879376b6a8019a55/Scrooge-McDuck---The-Dragon-of-Glasgow-0000.jpg" alt="Scrooge McDuck: El Dragón de Glasgow">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Llanero">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_62a7767bd4ad7/f53798d437ab369ff9bd60a8c03be65b/The-Lone-Ranger-001-000.jpg" alt="El Llanero Solitario">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Ben 10">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69feaeb3a5835/73a2b3197b4ef987a7b81569a4275885/Ben-10-001-(2026)-000---Cover-A.jpg" alt="Ben 10">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Dungeons">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64cec6a67aa57/1c1845d5ee3fc19138ad008ec68cf7fa/Dungeons-&-Dragons---El-Festival-de-la-Luna-00.jpg" alt="Dungeons & Dragons: El Festival de la Luna">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Batman">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6273f03aa8c62/37104fcac04bd78ff454feaed3d44d3e/Batman---White-Knight-001-(2017)-(Digital)-(Hillary-Clinton)-001.jpg" alt="Batman White Knight">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Korra">
-                    <img src="https://m.media-amazon.com/images/I/81Hpl1noN8L._SL1500_.jpg" alt="The Legend of Korra: Turf Wars">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Hellboy">
-                    <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69b87e973a5c1/2af5f00358083834a78310e019fb1a88/Hellboy-and-the-B.P.R.D.---The-Ghost-Ships-of-Labrador-01-0000-copia.jpg" alt="Hellboy y el B.P.R.D.">
-                    <button class="fav-btn">⭐</button>
-                </section>
-
-                <section class="book-item" data-id="Godzilla">
-                    <img src="https://assets.mycast.io/posters/godzilla-aftershock-fan-casting-poster-248892-large.jpg" alt="Godzilla Aftershock">
-                    <button class="fav-btn">⭐</button>
-                </section>
-            </div> 
-        </main>
-    </div>
-
-    <div id="info-panel" class="info-side-panel">
-        <div class="panel-header">
-            <button class="close-panel-btn"> Volver </button>
+<div class="main-container">
+    <aside id="starlight-panel" class="starlight hidden-panel">
+        <h2 class="novedad">Novedad</h2>
+        <div class="starlight-logo">
+            <img src="Textures/Section.png" alt="Starlight Logo" width="250" height="250">
+            <p class="starlight-logo-text">Starlight: A.T.P</p>
         </div>
-        <div class="panel-body">
-            <div class="panel-main-info">
-                <img id="panel-img" src="" alt="Portada">
-                <div class="text-content">
-                    <h2 id="panel-title">Título</h2>
-                    <p id="panel-author" class="author-label">Autor</p>
-                </div>
-            </div>
-            <nav class="tabs-nav">
-                <button class="tab-link active" data-tab="tab-resumen">Resumen</button>
-                <button class="tab-link" data-tab="tab-partes">Partes</button>
-            </nav>
-            <div class="tabs-container">
-                <div id="tab-resumen" class="tab-content active">
-                    <p id="panel-description">Sinopsis...</p>
-                    <button id="start-reading-btn" class="read-now-btn">Leer ahora</button>
-                </div>
-                <div id="tab-partes" class="tab-content">
-                    <ul class="chapters-list"></ul>
-                </div>
+        <div class="plants-reference">
+            <img src="Textures/Plants.png" alt="Plants Reference" width="200" height="150">
+        </div>
+        <p class="question">¿Te gusta dibujo y personajes originales?</p>
+        <a href="starlight.html" class="visit-link">
+            <button class="custom-btn" style="width: 100%; margin-top: 15px;">Visitar Starlight</button>
+        </a>
+    </aside>
+
+    <main class="side-menu">
+        <div id="section-title-container">
+            <h2 id="main-title" class="recomendation">Recomendaciones</h2>
+            <button id="btn-back-menu" class="custom-btn hidden">← Volver al Menú</button>
+        </div>
+        
+        <div id="comic-grid" class="gallery-grid">
+            <section class="book-item" data-id="Tortugas">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6415d34ae0e09/1f0856ba84039736aa5ed1c2df0b1e11/Teenage-Mutant-Ninja-Turtles---The-Last-Ronin-001-(2020)-(Digital)-(Mephisto-Empire)-001.jpg" alt="Tortugas Ninja">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Ghostbusters">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_651ad978c522c/90609243eb72146914b0718df5da8711/Ghostbusters---A%C3%B1o-Uno-01-(de-04)-000.jpg" alt="Ghostbusters">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Scrooge">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64e32076b1359/bfb63ef0d693a217879376b6a8019a55/Scrooge-McDuck---The-Dragon-of-Glasgow-0000.jpg" alt="Scrooge McDuck">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Llanero">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_62a7767bd4ad7/f53798d437ab369ff9bd60a8c03be65b/The-Lone-Ranger-001-000.jpg" alt="El Llanero Solitario">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Ben 10">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69feaeb3a5835/73a2b3197b4ef987a7b81569a4275885/Ben-10-001-(2026)-000---Cover-A.jpg" alt="Ben 10">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Dungeons">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64cec6a67aa57/1c1845d5ee3fc19138ad008ec68cf7fa/Dungeons-&-Dragons---El-Festival-de-la-Luna-00.jpg" alt="D&D">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Batman">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6273f03aa8c62/37104fcac04bd78ff454feaed3d44d3e/Batman---White-Knight-001-(2017)-(Digital)-(Hillary-Clinton)-001.jpg" alt="Batman White Knight">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Korra">
+                <img src="https://m.media-amazon.com/images/I/81Hpl1noN8L._SL1500_.jpg" alt="Legend of Korra">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Hellboy">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69b87e973a5c1/2af5f00358083834a78310e019fb1a88/Hellboy-and-the-B.P.R.D.---The-Ghost-Ships-of-Labrador-01-0000-copia.jpg" alt="Hellboy">
+                <button class="fav-btn">⭐</button>
+            </section>
+            <section class="book-item" data-id="Godzilla">
+                <img src="https://assets.mycast.io/posters/godzilla-aftershock-fan-casting-poster-248892-large.jpg" alt="Godzilla Aftershock">
+                <button class="fav-btn">⭐</button>
+            </section>
+        </div> 
+    </main>
+</div>
+
+<div id="info-panel" class="info-side-panel">
+    <div class="panel-header">
+        <button class="custom-btn" id="close-info"> ← Volver </button>
+    </div>
+    <div class="panel-body">
+        <div class="panel-main-info">
+            <img id="panel-img" src="" alt="Portada">
+            <div class="text-content">
+                <h2 id="panel-title">Título</h2>
+                <p id="panel-author" class="author-label">Autor</p>
             </div>
         </div>
-    </div>
-
-    <div id="reading-overlay" class="reading-overlay hidden">
-        <nav class="reading-nav">
-            <button id="close-reader" class="close-panel-btn">✕ Salir</button>
-            <span id="reading-title" style="color: white; font-weight: bold;">Cargando...</span>
+        <nav class="tabs-nav">
+            <button class="tab-link active" data-tab="tab-resumen">Resumen</button>
+            <button class="tab-link" data-tab="tab-partes">Capítulos</button>
         </nav>
-        <div class="pdf-frame-container">
-            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+        <div class="tabs-container">
+            <div id="tab-resumen" class="tab-content active">
+                <p id="panel-description">Sinopsis...</p>
+            </div>
+            <div id="tab-partes" class="tab-content">
+                <ul class="chapters-list"></ul>
+                <button id="start-reading-btn" class="custom-btn" style="width: 100%; margin-top: 20px; padding: 15px;">Leer ahora</button>
+            </div>
         </div>
     </div>
+</div>
 
-    <script src="app.js"></script>
+<div id="reading-overlay" class="reading-overlay hidden">
+    <nav class="reading-nav">
+        <button id="close-reader" class="custom-btn">✕ Salir</button>
+        <span id="reading-title" class="reader-title-text">Cargando...</span>
+        <div class="reader-controls">
+            <button id="prev-cap" class="custom-btn">◀</button>
+            <button id="next-cap" class="custom-btn">▶</button>
+        </div>
+    </nav>
+    <div class="pdf-frame-container">
+        <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<footer class="main-footer">
+    <p>support@fandomsquad.com | Tel: +58 4XX XXXXXXX</p>
+    <p>© 2026 Fandom-Squad - Noel Eduardo</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
