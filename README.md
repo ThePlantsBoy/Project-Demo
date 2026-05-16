@@ -22,4 +22,4 @@ Este proyecto está construido utilizando:
 
 1. Clona el repositorio:
    ```bash
-   [git clone [https://github.com/tu-usuario/readverse.git](https://github.com/tu-usuario/readverse.git)](https://github.com/ThePlantsBoy/Project-Demo.git)
+   git clone [https://github.com/ThePlantsBoy/Project-Demo.git]
