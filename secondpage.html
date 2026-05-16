@@ -1,36 +1,145 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-initial-scale=1.0">
-        <link rel="stylesheet" href="style2.css">
-        <title>Second page</title>
-    </head>
-    
-    <body>
-        <div class="second-page">
-            <p class="Starlight-text">Starlight</p>
-            <p class="Among">Among the Past</p>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Starlight: Among the Past</title>
+</head>
+<body>
 
-            <div class="introduction-to-page">
-                <p class="text1">Meet the Gang and the world around them, Face the Past and the bad apple's of the person you were before,can you beat and move on, or remain stuck in what where “happier” times..</p>
+    <header class="header">
+        <h1 class="pagename" id="btn-home-starlight">Starlight</h1>
+        <div class="header-btns">
+            <button id="nav-chars" class="custom-btn">Characters</button>
+            <button id="nav-gallery" class="custom-btn">Gallery</button>
+            <button id="nav-studio" class="custom-btn">✨ Comic Studio</button>
+            <a href="index.html" style="text-decoration: none;"><button class="custom-btn back-main-btn">← Fandom-Squad</button></a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <section id="sec-home" class="starlight-section">
+            <div class="intro-box">
+                <h2 class="among-title">Among the Past</h2>
+                <p class="text1">Meet the Gang and the world around them, Face the Past and the bad apple's of the person you were before, can you beat and move on, or remain stuck in what where “happier” times...</p>
                 <p class="text2">That's, only something YOU can resolve *******.</p>
                 <p class="text3">See you soon...</p>
             </div>
             
-            <main class="Interactive-layout">
-                <p class="characters">characters</p>
-                <div class="plants-little-icon">
-                    <img src="Textures\Plants(pagewip).png" width="384" height="384">
-                </div>
-                <p class="History">History</p>
-            </main>
+            <div class="center-preview">
+                <img src="Plants(pagewip).png" alt="Plants Preview" class="preview-img">
+            </div>
 
             <footer class="support">
                 <p class="need-help">Wanna ask me something? feel free to message me!</p>
                 <div class="gmail">
-                    <img src="Textures\gmail-logo.png" width="70" height="70">
+                    <img src="gmail-logo.png" alt="Gmail" width="50" height="50">
                 </div>
             </footer>
-        </div>
-    </body>
+        </section>
+
+        <section id="sec-characters" class="starlight-section hidden">
+            <div class="section-header-box">
+                <button class="custom-btn btn-back-start">← Volver</button>
+                <h2 id="char-name" class="char-title">Plants, The Immortal Vessel</h2>
+            </div>
+            
+            <div class="char-carousel-container">
+                <button id="prev-char" class="carousel-arrow">◀</button>
+                
+                <div class="char-card">
+                    <div class="char-img-box">
+                        <img id="char-img" src="Textures/Plants(pagewip).png" alt="Character">
+                    </div>
+                    <div class="char-info-box">
+                        <p id="char-desc">Plants it's the first one i created, and the same one that stick thought my whole life, as a immortal being he always taking risk and care's a lot for anyone around him.</p>
+                        <ul class="char-bullets">
+                            <li id="bullet1">He squishy and almost like he doesn't have bones.</li>
+                            <li id="bullet2">Dying become such a habit that he just, doesn't care about it anymore.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button id="next-char" class="carousel-arrow">▶</button>
+            </div>
+        </section>
+
+        <section id="sec-gallery" class="starlight-section hidden">
+            <div class="section-header-box">
+                <button class="custom-btn btn-back-start">← Volver</button>
+                <h2 class="char-title">Art than i made!</h2>
+            </div>
+
+            <div class="gallery-wrapper">
+                <button id="prev-gal" class="carousel-arrow">◀</button>
+                <div class="gallery-slider-container">
+                    <div id="gallery-track" class="gallery-track">
+                        <div class="gallery-item"><img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6415d34ae0e09/1f0856ba84039736aa5ed1c2df0b1e11/Teenage-Mutant-Ninja-Turtles---The-Last-Ronin-001-(2020)-(Digital)-(Mephisto-Empire)-001.jpg" alt="Art 1"></div>
+                        <div class="gallery-item"><img src="https://m.media-amazon.com/images/I/81Hpl1noN8L._SL1500_.jpg" alt="Art 2"></div>
+                        <div class="gallery-item"><img src="https://assets.mycast.io/posters/godzilla-aftershock-fan-casting-poster-248892-large.jpg" alt="Art 3"></div>
+                        <div class="gallery-item"><img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_62a7767bd4ad7/f53798d437ab369ff9bd60a8c03be65b/The-Lone-Ranger-001-000.jpg" alt="Art 4"></div>
+                        <div class="gallery-item"><img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69feaeb3a5835/73a2b3197b4ef987a7b81569a4275885/Ben-10-001-(2026)-000---Cover-A.jpg" alt="Art 5"></div>
+                    </div>
+                </div>
+                <button id="next-gal" class="carousel-arrow">▶</button>
+            </div>
+        </section>
+
+        <section id="sec-studio" class="starlight-section hidden">
+            <div class="studio-container">
+                <aside class="canvas-tools">
+                    <h3>Herramientas</h3>
+                    
+                    <div class="tool-group">
+                        <label>Pincel / Color</label>
+                        <input type="color" id="tool-color" value="#006973">
+                    </div>
+
+                    <div class="tool-group">
+                        <label>Grosor (<span id="brush-val">5</span>px)</label>
+                        <input type="range" id="tool-size" min="1" max="50" value="5">
+                    </div>
+
+                    <div class="tool-group flex-buttons">
+                        <button id="tool-brush" class="custom-btn tool-active">✏️ Pincel</button>
+                        <button id="tool-eraser" class="custom-btn">🧽 Borrador</button>
+                        <button id="tool-bucket" class="custom-btn">🪣 Rellenar</button>
+                    </div>
+
+                    <div class="tool-group">
+                        <label>Plantilla de Cómic</label>
+                        <select id="tool-template">
+                            <option value="none">Lienzo Vacío</option>
+                            <option value="2-panels">2 Viñetas Verticales</option>
+                            <option value="3-panels">3 Viñetas Clásicas</option>
+                            <option value="4-panels">4 Viñetas Cuadradas</option>
+                        </select>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="btn-clear-canvas" class="custom-btn variant-red">Limpiar</button>
+                        <button id="btn-save-library" class="custom-btn">💾 Guardar en Biblioteca</button>
+                        <button id="btn-publish-fandom" class="custom-btn">🚀 Publicar en Fandom-Squad</button>
+                    </div>
+                </aside>
+
+                <main class="canvas-area">
+                    <canvas id="comic-canvas" width="800" height="550"></canvas>
+                </main>
+            </div>
+
+            <div class="user-library">
+                <h3>Tu Biblioteca Privada de Cómics</h3>
+                <div id="library-grid" class="library-grid">
+                    <p class="empty-msg">Aún no has guardado bocetos o cómics en tu biblioteca.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="starlight.js"></script>
+</body>
 </html>
