@@ -5,14 +5,28 @@ const listadoPersonajes = [
         descripcion: "Plants it's the first one i created, and the same one that stick thought my whole life, as a immortal being he always taking risk and care's a lot for anyone around him.",
         b1: "He squishy and almost like he doesn't have bones.",
         b2: "Dying become such a habit that he just, doesn't care about it anymore.",
-        imagen: "plants(character).png"
+        imagen: "Textures/plants(character).png"
     },
     {
-        nombre: "Starlight Héroe",
-        descripcion: "El misterioso guardián del núcleo del pasado. Sus poderes provienen directamente de los recuerdos felices guardados antes de la gran fragmentación cósmica.",
-        b1: "Puede materializar herramientas hechas de luz pura.",
-        b2: "Tiene un vínculo empático directo con Plants.",
-        imagen: "https://marmota.me/wp-content/uploads/WP-manga/data/manga_69feaeb3a5835/73a2b3197b4ef987a7b81569a4275885/Ben-10-001-(2026)-000---Cover-A.jpg"
+        nombre: "Past, The Kind soul",
+        descripcion: "Past it's the kind and shield of the team, aswell as the second character that came to existence, he is a kind soul, and wouldn't not even hurt a fly",
+        b1: "His shield was made by his father, and it's extremely special for him",
+        b2: "A amazing chef, and the only one that can cook out of his friend",
+        imagen: "Textures/Past.png"
+    },
+    {
+        nombre: "Lily, Ex-mercenary",
+        descripcion: "The Brain and planning of the group, even if she ain't the leader, she still know's how to make extra planning if needed to, better safe than sorry!",
+        b1: "Electricity being her speciality, but also, she being extremely weak to physical combat",
+        b2: "extremely shy to talk to new people unless the others present her",
+        imagen: "Textures/Lily.png"
+    },
+    {
+        nombre: "Zetary, Crazy minded",
+        descripcion: "The Powerhouse of the group, somebody who can take hits and laugh about it, he really doesn't mind taking a bullet to the face for his friends, not matter what.",
+        b1: "A coffee lover, he need's it a lot to stay awake thanks to his telekinses powers",
+        b2: "Unlike the others, he won't hesistated to kill if needed to",
+        imagen: "Textures/Zetary.png"
     }
 ];
 
