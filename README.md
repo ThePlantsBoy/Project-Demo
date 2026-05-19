@@ -4,19 +4,23 @@ ReadVerse es una plataforma integral diseñada para los amantes de las historias
 
 ## 🚀 Características Principales
 
-* **Catálogo Híbrido:** Acceso a libros, cómics y novelas basadas en medios visuales (videojuegos y cine).
-* **Sistema de Recomendaciones Inteligente:** Recibe sugerencias personalizadas basadas en tus gustos, historial de lectura y tus escritores preferidos.
+* **Catálogo Híbrido:** Acceso a comics de tu franquicias favoritas
 * **Página Interactiva:** Una interfaz dinámica diseñada para que el usuario no solo lea, sino que explore contenido de manera visual y fluida.
-* **Seguimiento de Autores:** Mantente al día con las obras de tus escritores favoritos a través de un sistema de relaciones y perfiles dedicados.
-* **Filtros Avanzados:** Busca por género, medio original o estilo narrativo.
+* **Crea tus propios comics** deja tu creatividad en lo que mas te gusta y guardalo en la pagina starlight.
 
 ## 🛠️ Tecnologías
 
 Este proyecto está construido utilizando:
 
-* **Frontend:** HTML5, CSS3, JavaScript (o frameworks como React/Vue).
-* **Backend:** Python (Django/Flask) o Node.js.
-* **Base de Datos:** PostgreSQL o MongoDB para la gestión de metadatos de libros y perfiles.
+# CSS
+# HTML
+# JAVASCRIPT
+
+# Creadores de la pagina:
+
+*Gregorio Castillo*
+*Noel Hernandez*
+*Santiago Vargas*
 
 ## 📦 Instalación
 
