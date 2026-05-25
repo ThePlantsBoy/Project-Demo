@@ -83,26 +83,53 @@ document.getElementById('prev-char').onclick = () => {
 };
 
 // --- LÓGICA DESKTOP 3: GALERÍA DESLIZABLE ---
-const track = document.getElementById('gallery-track');
-document.getElementById('next-gal').onclick = () => {
-    const items = document.querySelectorAll('.gallery-item');
-    if (trackIndexGaleria < items.length - 1) {
-        trackIndexGaleria++;
-        ajustarDesplazamientoGaleria();
-    }
-};
+const track = document.getElementById("gallery-track");
+const items = document.querySelectorAll(".gallery-item");
 
-document.getElementById('prev-gal').onclick = () => {
-    if (trackIndexGaleria > 0) {
-        trackIndexGaleria--;
-        ajustarDesplazamientoGaleria();
-    }
-};
+let activeIndex = 0;
 
-function ajustarDesplazamientoGaleria() {
-    const anchoItem = document.querySelector('.gallery-item').offsetWidth + 20; // Ancho + gap
-    track.style.transform = `translateX(-${trackIndexGaleria * anchoItem}px)`;
+function updateCarousel() {
+
+    items.forEach((item, i) => {
+
+        const offset = i - activeIndex;
+
+        let rotateY = offset * -45;
+        let translateZ = Math.abs(offset) * -100;
+        let scale = i === activeIndex ? 1 : 0.8;
+        let opacity = i === activeIndex ? 1 : 0.5;
+
+        item.style.transform = `
+            rotateY(${rotateY}deg)
+            translateZ(${translateZ}px)
+            scale(${scale})
+        `;
+
+        item.style.opacity = opacity;
+    });
+
+    track.style.transform = `
+        translateX(calc(50% - ${activeIndex * 290}px - 125px))
+    `;
 }
+
+document.getElementById("next-gal").addEventListener("click", () => {
+
+    if(activeIndex < items.length - 1){
+        activeIndex++;
+        updateCarousel();
+    }
+});
+
+document.getElementById("prev-gal").addEventListener("click", () => {
+
+    if(activeIndex > 0){
+        activeIndex--;
+        updateCarousel();
+    }
+});
+
+
 
 // --- LÓGICA SECCIÓN 4: ESTUDIO DE CÓMICS (CANVAS) ---
 const canvas = document.getElementById('comic-canvas');
