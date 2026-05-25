@@ -117,7 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarFavoritosStorage();
 });
 
-document.getElementById('logo-home').onclick = () => location.reload();
+
+document.getElementById('logo-home').onclick = () => {
+    mainTitle.textContent = "Recomendaciones";
+    btnBackMenu.classList.add('hidden');
+    document.querySelectorAll('.book-item').forEach(item => item.classList.remove('hidden'));
+    infoPanel.classList.remove('active');
+    starlightPanel.classList.add('hidden-panel');
+};
 
 document.getElementById('btn-starlight-toggle').onclick = (e) => {
     e.stopPropagation();
@@ -245,4 +252,28 @@ document.querySelectorAll('.tab-link').forEach(tab => {
         tab.classList.add('active');
         document.getElementById(tab.dataset.tab).classList.add('active');
     };
+});
+
+document.querySelectorAll('.book-item').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const width = card.clientWidth;
+        const height = card.clientHeight;
+        
+        const xVal = e.offsetX / width - 0.5;
+        const yVal = e.offsetY / height - 0.5;
+        
+        const yAxis = xVal * 25;
+        const xAxis = -yVal * 25;
+        
+        card.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'none';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transition = 'all 0.5s ease-out';
+        card.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+    });
 });
