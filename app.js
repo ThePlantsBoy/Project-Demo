@@ -109,6 +109,13 @@ const reader = document.getElementById('reading-overlay');
 const pdfViewer = document.getElementById('pdf-viewer');
 const mainTitle = document.getElementById('main-title');
 const btnBackMenu = document.getElementById('btn-back-menu');
+const genreColors = {
+    all: "#006973",
+    Heroes: "#273c80",
+    Fantasy: "#b6b452",
+    Adventure: "#346e39",
+    Horror: "#1b1616"
+};
 
 let currentComicId = "";
 let currentCapIndex = 0;
@@ -276,4 +283,32 @@ document.querySelectorAll('.book-item').forEach(card => {
         card.style.transition = 'all 0.5s ease-out';
         card.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
     });
+});
+
+const genreButtons = document.querySelectorAll("#genre-menu button");
+
+genreButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const genre = button.dataset.genre;
+        const oscuro = document.body.classList.contains("dark-mode")
+
+        document.querySelectorAll('.book-item').forEach(comic => {
+
+            comic.style.display =
+                genre === "all" ||
+                comic.dataset.genre === genre
+                    ? "block"
+                    : "none";
+
+        });
+
+        document.documentElement.style.setProperty(
+            "--bg-main",
+            genreColors[genre]
+        );
+
+    });
+
 });
