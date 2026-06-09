@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXB36GL7HM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,10 +19,17 @@
 
 <header class="header">
     <button id="btn-starlight-toggle" class="custom-btn">✨ Starlight</button>
-    <h1 class="pagename" id="logo-home">Fandom-Quad</h1>
+    
+    <div class="header-center">
+        <h1 class="pagename" id="logo-home" title="Volver al inicio">Fandom-Squad</h1>
+        <div class="search-container">
+            <input type="text" id="search-bar" class="search-input" placeholder="Buscar cómic...">
+        </div>
+    </div>
+
     <div class="header-btns">
         <button id="btn-favs-toggle" class="custom-btn">⭐ Favoritos</button>
-        <button id="boton-oscuro" class="custom-btn">🌙</button>
+        <button id="boton-oscuro" class="custom-btn">🌙 Modo Oscuro</button>
     </div>
 </header>
 
@@ -45,16 +51,18 @@
 
     <main class="side-menu">
         <div id="section-title-container">
-            <h2 id="main-title" class="recomendation">Recomendaciones</h2>
-            <button id="btn-back-menu" class="custom-btn hidden">← Volver al Menú</button>
+            <div class="title-wrapper">
+                <button id="btn-recomendaciones" class="recomendation-btn">Recomendaciones ⬇</button>
+                <button id="btn-back-menu" class="custom-btn hidden">← Volver al Menú</button>
+            </div>
         </div>
 
-        <div id="genre-menu">
-            <button id="category-btn" class="custom-btn" data-genre="all">Todos</button>
-            <button id="category-btn" class="custom-btn" data-genre="Heroes">Héroes</button>
-            <button id="category-btn" class="custom-btn" data-genre="Fantasy">Fantasía</button>
-            <button id="category-btn" class="custom-btn" data-genre="Adventure">Adventura</button>
-            <button id="category-btn" class="custom-btn" data-genre="Horror">Horror</button>
+        <div id="genre-menu" class="hidden-panel-vertical">
+            <button class="custom-btn category-btn" data-genre="all">Todos</button>
+            <button class="custom-btn category-btn" data-genre="Heroes">Héroes</button>
+            <button class="custom-btn category-btn" data-genre="Fantasy">Fantasía</button>
+            <button class="custom-btn category-btn" data-genre="Adventure">Aventura</button>
+            <button class="custom-btn category-btn" data-genre="Horror">Horror</button>
         </div>
         
         <div id="comic-grid" class="gallery-grid">
@@ -104,7 +112,7 @@
 
 <div id="info-panel" class="info-side-panel">
     <div class="panel-header">
-        <button class="custom-btn" id="close-info"> ← Volver </button>
+        <button class="custom-btn panel-btn" id="close-info"> ← Volver </button>
     </div>
     <div class="panel-body">
         <div class="panel-main-info">
@@ -124,21 +132,14 @@
             </div>
             <div id="tab-partes" class="tab-content">
                 <ul class="chapters-list"></ul>
-                <button id="start-reading-btn" class="custom-btn" style="width: 100%; margin-top: 20px; padding: 15px;">Leer ahora</button>
+                <button id="start-reading-btn" class="custom-btn panel-btn" style="width: 100%; margin-top: 20px; padding: 15px;">Leer ahora</button>
             </div>
         </div>
     </div>
 </div>
 
 <div id="reading-overlay" class="reading-overlay hidden">
-    <nav class="reading-nav">
-        <button id="close-reader" class="custom-btn">✕ Salir</button>
-        <span id="reading-title" class="reader-title-text">Cargando...</span>
-        <div class="reader-controls">
-            <button id="prev-cap" class="custom-btn">◀</button>
-            <button id="next-cap" class="custom-btn">▶</button>
-        </div>
-    </nav>
+    <div id="toast-exit" class="toast">Presiona ESC o haz doble clic para salir</div>
     <div class="pdf-frame-container">
         <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
     </div>
@@ -146,7 +147,7 @@
 
 <footer class="main-footer">
     <p>support@fandomquad.com | Tel: +58 4XX XXXXXXX</p>
-    <p>© 2026 Fandom-Quad - Noel Eduardo - Gregorio Castillo - Santiago Vargas</p>
+    <p>© 2026 Fandom-Squad - Noel Eduardo - Gregorio Castillo - Santiago Vargas</p>
 </footer>
 
 <script src="app.js"></script>
