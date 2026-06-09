@@ -113,6 +113,11 @@ const genreMenu = document.getElementById('genre-menu');
 const searchBar = document.getElementById('search-bar');
 const botonOscuro = document.getElementById('boton-oscuro');
 
+// Selectores nuevos para los controles de navegación internos del lector
+const btnReaderBack = document.getElementById('btn-reader-back');
+const btnReaderPrev = document.getElementById('btn-reader-prev');
+const btnReaderNext = document.getElementById('btn-reader-next');
+
 let currentComicId = "";
 let currentCapIndex = 0;
 
@@ -146,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarModoOscuro();
 });
 
-// Refrescar página guardando estado al tocar el Título
+// Refrescar página guardando estado al tocar el Título (Preserva el LocalStorage intacto)
 document.getElementById('logo-home').onclick = () => {
     window.location.reload(); 
 };
@@ -234,11 +239,40 @@ function abrirLector(id, index) {
     pdfViewer.src = comic.links[index];
     reader.classList.remove('hidden');
     
+    // Gestión dinámica de los nuevos botones de navegación (Ocultar si no hay extremos realizables)
+    if (index <= 0) {
+        btnReaderPrev.classList.add('hidden');
+    } else {
+        btnReaderPrev.classList.remove('hidden');
+    }
+
+    if (index >= comic.links.length - 1) {
+        btnReaderNext.classList.add('hidden');
+    } else {
+        btnReaderNext.classList.remove('hidden');
+    }
+
     // Mostrar Toast
     const toast = document.getElementById('toast-exit');
     toast.style.opacity = '1';
     setTimeout(() => { toast.style.opacity = '0'; }, 3000);
 }
+
+// Asignación de acciones a los nuevos botones del lector superior
+btnReaderBack.onclick = () => cerrarLector();
+
+btnReaderPrev.onclick = () => {
+    if (currentCapIndex > 0) {
+        abrirLector(currentComicId, currentCapIndex - 1);
+    }
+};
+
+btnReaderNext.onclick = () => {
+    const comic = bdComics[currentComicId];
+    if (currentCapIndex < comic.links.length - 1) {
+        abrirLector(currentComicId, currentCapIndex + 1);
+    }
+};
 
 // Salir del lector con ESC o Doble Clic
 document.addEventListener('keydown', (e) => {
