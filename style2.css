@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 
 :root {
-    --bg-header: #720041;
-    --bg-main: #006973;
+    --bg-header: #000000;
+    --bg-main: #4169E1;
     --bg-aside: #f0f0f0;
     --text-color: #ffffff;
     --panel-bg: #1a1a1a;
-    --accent-btn: #006973;
-    --hover-btn: #004d55;
+    --accent-btn: #1a1a1a;
+    --hover-btn: #000000;
     --card-bg: #183459;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 #nav-chars {
-    border: 0 solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
     outline: 1px solid;
     outline-color: rgba(255, 255, 255, .5);
@@ -73,7 +73,7 @@ body {
 } 
 
 #nav-chars:hover {
-    border: 1px solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(148, 35, 101, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
@@ -81,7 +81,7 @@ body {
 }
 
 #nav-gallery {
-    border: 0 solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
     outline: 1px solid;
     outline-color: rgba(255, 255, 255, .5);
@@ -91,7 +91,7 @@ body {
 } 
 
 #nav-gallery:hover {
-    border: 1px solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(148, 35, 101, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
@@ -99,7 +99,7 @@ body {
 }
 
 #nav-studio {
-    border: 0 solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
     outline: 1px solid;
     outline-color: rgba(255, 255, 255, .5);
@@ -109,7 +109,7 @@ body {
 } 
 
 #nav-studio:hover {
-    border: 1px solid;
+    border: none;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(148, 35, 101, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
