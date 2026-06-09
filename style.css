@@ -442,6 +442,23 @@ body {
   flex-direction: column;
 }
 
+/* Controles de navegación superiores del lector */
+.reader-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: #000000;
+  padding: 12px;
+  z-index: 3020;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.reader-btn {
+  font-size: 0.85rem;
+  padding: 8px 18px;
+}
+
 .pdf-frame-container {
   flex-grow: 1;
   width: 100%;
@@ -449,6 +466,18 @@ body {
   overflow: hidden;
   position: relative;
   background: #000;
+}
+
+/* Capa selectiva que cubre el botón nativo de ventana emergente del iframe */
+.iframe-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65px;
+  height: 52px;
+  background: #000000;
+  z-index: 3050;
+  pointer-events: auto; /* Bloquea las interacciones de ratón en esa zona */
 }
 
 #pdf-viewer {
@@ -459,7 +488,7 @@ body {
 
 .toast {
   position: absolute;
-  top: 20px;
+  top: 75px; /* Ajustado para no colisionar con la barra de navegación */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255,255,255,0.9);
@@ -527,4 +556,5 @@ body {
 
 .hidden {
   display: none !important;
+}
 }
