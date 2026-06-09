@@ -107,30 +107,73 @@ const starlightPanel = document.getElementById('starlight-panel');
 const infoPanel = document.getElementById('info-panel');
 const reader = document.getElementById('reading-overlay');
 const pdfViewer = document.getElementById('pdf-viewer');
-const mainTitle = document.getElementById('main-title');
 const btnBackMenu = document.getElementById('btn-back-menu');
-const genreColors = {
-    all: "#006973",
-    Heroes: "#273c80",
-    Fantasy: "#b6b452",
-    Adventure: "#346e39",
-    Horror: "#1b1616"
-};
+const btnRecomendaciones = document.getElementById('btn-recomendaciones');
+const genreMenu = document.getElementById('genre-menu');
+const searchBar = document.getElementById('search-bar');
+const botonOscuro = document.getElementById('boton-oscuro');
 
 let currentComicId = "";
 let currentCapIndex = 0;
 
-document.addEventListener('DOMContentLoaded', () => {
-    cargarFavoritosStorage();
+// Sistema de Ripple Effect (Ondas 3D en botones)
+function createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    const rect = button.getBoundingClientRect();
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.querySelector(".ripple");
+    if (ripple) {
+        ripple.remove();
+    }
+    button.appendChild(circle);
+}
+
+document.querySelectorAll('.custom-btn').forEach(btn => {
+    btn.addEventListener('click', createRipple);
 });
 
+// Inicialización de la página
+document.addEventListener('DOMContentLoaded', () => {
+    cargarFavoritosStorage();
+    cargarModoOscuro();
+});
 
+// Refrescar página guardando estado al tocar el Título
 document.getElementById('logo-home').onclick = () => {
-    mainTitle.textContent = "Recomendaciones";
-    btnBackMenu.classList.add('hidden');
-    document.querySelectorAll('.book-item').forEach(item => item.classList.remove('hidden'));
-    infoPanel.classList.remove('active');
-    starlightPanel.classList.add('hidden-panel');
+    window.location.reload(); 
+};
+
+// Lógica buscador en tiempo real
+searchBar.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    document.querySelectorAll('.book-item').forEach(item => {
+        const id = item.dataset.id;
+        const title = bdComics[id].titulo.toLowerCase();
+        
+        if(title.includes(term)) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+});
+
+// Menú de categorías (Recomendaciones)
+btnRecomendaciones.onclick = () => {
+    genreMenu.classList.toggle('show');
+    if(genreMenu.classList.contains('show')) {
+        btnRecomendaciones.textContent = "Recomendaciones ⬆";
+    } else {
+        btnRecomendaciones.textContent = "Recomendaciones ⬇";
+    }
 };
 
 document.getElementById('btn-starlight-toggle').onclick = (e) => {
@@ -142,11 +185,12 @@ document.getElementById('btn-starlight-toggle').onclick = (e) => {
 document.getElementById('btn-favs-toggle').onclick = () => mostrarFavoritos();
 
 document.getElementById('btn-back-menu').onclick = () => {
-    mainTitle.textContent = "Recomendaciones";
     btnBackMenu.classList.add('hidden');
     document.querySelectorAll('.book-item').forEach(item => item.classList.remove('hidden'));
+    searchBar.value = ""; // Limpiar busqueda
 };
 
+// Clics en los cómics
 document.querySelectorAll('.book-item').forEach(item => {
     item.addEventListener('click', (e) => {
         if(e.target.classList.contains('fav-btn')) return;
@@ -168,7 +212,8 @@ function abrirPanelInfo(id, imgSrc) {
     info.capitulos.forEach((cap, i) => {
         const li = document.createElement('li');
         li.className = "chapter-item";
-        li.innerHTML = `<span>${i+1}</span> ${cap}`;
+        // Números pequeños según modo claro/oscuro
+        li.innerHTML = `<span class="chapter-num">#${i+1}</span> ${cap}`;
         li.onclick = () => abrirLector(id, i);
         lista.appendChild(li);
     });
@@ -177,6 +222,7 @@ function abrirPanelInfo(id, imgSrc) {
     starlightPanel.classList.add('hidden-panel');
 }
 
+// Lector Inmersivo
 function abrirLector(id, index) {
     const comic = bdComics[id];
     currentComicId = id;
@@ -185,9 +231,29 @@ function abrirLector(id, index) {
     localStorage.setItem(`last_comic`, id);
     localStorage.setItem(`last_cap_${id}`, index);
 
-    document.getElementById('reading-title').textContent = `${comic.titulo} - ${comic.capitulos[index]}`;
     pdfViewer.src = comic.links[index];
     reader.classList.remove('hidden');
+    
+    // Mostrar Toast
+    const toast = document.getElementById('toast-exit');
+    toast.style.opacity = '1';
+    setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+}
+
+// Salir del lector con ESC o Doble Clic
+document.addEventListener('keydown', (e) => {
+    if(e.key === "Escape" && !reader.classList.contains('hidden')) {
+        cerrarLector();
+    }
+});
+
+reader.addEventListener('dblclick', () => {
+    cerrarLector();
+});
+
+function cerrarLector() {
+    reader.classList.add('hidden');
+    pdfViewer.src = "";
 }
 
 document.getElementById('start-reading-btn').onclick = () => {
@@ -195,26 +261,24 @@ document.getElementById('start-reading-btn').onclick = () => {
     abrirLector(currentComicId, parseInt(lastCap));
 };
 
-document.getElementById('next-cap').onclick = () => {
-    const comic = bdComics[currentComicId];
-    if(currentCapIndex < comic.links.length - 1) abrirLector(currentComicId, currentCapIndex + 1);
-};
-document.getElementById('prev-cap').onclick = () => {
-    if(currentCapIndex > 0) abrirLector(currentComicId, currentCapIndex - 1);
-};
-
+// Favoritos rediseñado
 document.querySelectorAll('.fav-btn').forEach(btn => {
     btn.onclick = (e) => {
         e.stopPropagation();
         const id = btn.closest('.book-item').dataset.id;
-        const esFav = btn.innerHTML === "🌟";
-        btn.innerHTML = esFav ? "⭐" : "🌟";
         
         let favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
-        if (!esFav) {
-            if (!favs.includes(id)) favs.push(id);
-        } else {
+        
+        if (btn.classList.contains('active-fav')) {
+            // Desactivar
+            btn.classList.remove('active-fav');
+            btn.innerHTML = "⭐";
             favs = favs.filter(f => f !== id);
+        } else {
+            // Activar
+            btn.classList.add('active-fav');
+            btn.innerHTML = "🌟";
+            if (!favs.includes(id)) favs.push(id);
         }
         localStorage.setItem('fandom_favs', JSON.stringify(favs));
     };
@@ -223,19 +287,23 @@ document.querySelectorAll('.fav-btn').forEach(btn => {
 function cargarFavoritosStorage() {
     const favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
     document.querySelectorAll('.book-item').forEach(item => {
-        if (favs.includes(item.dataset.id)) item.querySelector('.fav-btn').innerHTML = "🌟";
+        if (favs.includes(item.dataset.id)) {
+            const btn = item.querySelector('.fav-btn');
+            btn.classList.add('active-fav');
+            btn.innerHTML = "🌟";
+        }
     });
 }
 
 function mostrarFavoritos() {
     const favs = JSON.parse(localStorage.getItem('fandom_favs')) || [];
-    mainTitle.textContent = "Favoritos ⭐";
     btnBackMenu.classList.remove('hidden');
     document.querySelectorAll('.book-item').forEach(item => {
         item.classList.toggle('hidden', !favs.includes(item.dataset.id));
     });
 }
 
+// Manejo de clicks fuera de paneles
 window.onclick = function(event) {
     if (infoPanel.classList.contains('active') && !infoPanel.contains(event.target) && !event.target.closest('.book-item')) {
         infoPanel.classList.remove('active');
@@ -246,13 +314,32 @@ window.onclick = function(event) {
 };
 
 document.getElementById('close-info').onclick = () => infoPanel.classList.remove('active');
-document.getElementById('close-reader').onclick = () => {
-    reader.classList.add('hidden');
-    pdfViewer.src = "";
+
+// Modo Oscuro Persistente
+botonOscuro.onclick = () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('fandom_dark_mode', isDark);
+    actualizarBotonOscuro(isDark);
 };
 
-document.getElementById('boton-oscuro').onclick = () => document.body.classList.toggle('dark-mode');
+function cargarModoOscuro() {
+    const isDark = localStorage.getItem('fandom_dark_mode') === 'true';
+    if(isDark) {
+        document.body.classList.add('dark-mode');
+    }
+    actualizarBotonOscuro(isDark);
+}
 
+function actualizarBotonOscuro(isDark) {
+    if(isDark) {
+        botonOscuro.innerHTML = "☀️ Modo Claro";
+    } else {
+        botonOscuro.innerHTML = "🌙 Modo Oscuro";
+    }
+}
+
+// Pestañas
 document.querySelectorAll('.tab-link').forEach(tab => {
     tab.onclick = () => {
         document.querySelectorAll('.tab-link, .tab-content').forEach(el => el.classList.remove('active'));
@@ -261,17 +348,15 @@ document.querySelectorAll('.tab-link').forEach(tab => {
     };
 });
 
+// Efecto 3D Cards
 document.querySelectorAll('.book-item').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const width = card.clientWidth;
         const height = card.clientHeight;
-        
         const xVal = e.offsetX / width - 0.5;
         const yVal = e.offsetY / height - 0.5;
-        
         const yAxis = xVal * 25;
         const xAxis = -yVal * 25;
-        
         card.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg) scale(1.05)`;
     });
 
@@ -285,30 +370,18 @@ document.querySelectorAll('.book-item').forEach(card => {
     });
 });
 
-const genreButtons = document.querySelectorAll("#genre-menu button");
-
+// Filtrado por botones de género
+const genreButtons = document.querySelectorAll(".category-btn");
 genreButtons.forEach(button => {
-
     button.addEventListener("click", () => {
-
         const genre = button.dataset.genre;
-        const oscuro = document.body.classList.contains("dark-mode")
-
         document.querySelectorAll('.book-item').forEach(comic => {
-
-            comic.style.display =
-                genre === "all" ||
-                comic.dataset.genre === genre
-                    ? "block"
-                    : "none";
-
+            if(genre === "all" || comic.dataset.genre === genre) {
+                comic.classList.remove('hidden');
+            } else {
+                comic.classList.add('hidden');
+            }
         });
-
-        document.documentElement.style.setProperty(
-            "--bg-main",
-            genreColors[genre]
-        );
-
+        btnBackMenu.classList.remove('hidden'); // Permitir reset
     });
-
 });
