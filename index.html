@@ -21,7 +21,7 @@
     <button id="btn-starlight-toggle" class="custom-btn">✨ Starlight</button>
     
     <div class="header-center">
-        <h1 class="pagename" id="logo-home" title="Volver al inicio">Fandom-Squad</h1>
+        <h1 class="pagename" id="logo-home" title="Volver al inicio y actualizar">Fandom-Squad</h1>
         <div class="search-container">
             <input type="text" id="search-bar" class="search-input" placeholder="Buscar cómic...">
         </div>
@@ -139,8 +139,14 @@
 </div>
 
 <div id="reading-overlay" class="reading-overlay hidden">
+    <div class="reader-controls">
+        <button id="btn-reader-back" class="custom-btn reader-btn">← Volver</button>
+        <button id="btn-reader-prev" class="custom-btn reader-btn">⏮ Anterior</button>
+        <button id="btn-reader-next" class="custom-btn reader-btn">Siguiente ⏭</button>
+    </div>
     <div id="toast-exit" class="toast">Presiona ESC o haz doble clic para salir</div>
     <div class="pdf-frame-container">
+        <div class="iframe-cover"></div>
         <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
     </div>
 </div>
