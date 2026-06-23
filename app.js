@@ -7,6 +7,7 @@ const btnRecomendaciones = document.getElementById('btn-recomendaciones');
 const genreMenu = document.getElementById('genre-menu');
 const searchBar = document.getElementById('search-bar');
 const botonOscuro = document.getElementById('boton-oscuro');
+const usuarioNuevo = document.getElementById('Usuario')
 
 // Selectores nuevos para los controles de navegación internos del lector
 const btnReaderBack = document.getElementById('btn-reader-back');
@@ -314,3 +315,134 @@ genreButtons.forEach(button => {
         btnBackMenu.classList.remove('hidden'); // Permitir reset
     });
 });
+
+function obtenerCookie(nombre) {
+
+    const cookies = document.cookie.split(";");
+
+    for (let cookie of cookies) {
+
+        let [clave, valor] = cookie.trim().split("=");
+
+        if (clave === nombre) {
+            return valor;
+        }
+    }
+
+    return null;
+}
+
+function crearCuenta() {
+
+    const usuario = document.getElementById("usuario-registrado");
+
+    const password = document.getElementById("usuario-contraseña");
+
+    let error = false;
+
+    usuario.classList.remove("input-error");
+    password.classList.remove("input-error");
+
+    if (usuario.value.trim() === "") {
+
+        usuario.classList.add("input-error");
+        error = true;
+    }
+
+    if (password.value.trim() === "") {
+
+        password.classList.add("input-error");
+        error = true;
+    }
+
+    if (error) return;
+
+    let cuentas = [];
+
+    const cookieCuentas = obtenerCookie("cuentas");
+    
+    if (cookieCuentas) {
+        cuentas = JSON.parse(
+            decodeURIComponent(cookieCuentas)
+        );
+    }
+    const existe = cuentas.some(cuenta => cuenta.usuario === usuario.value);
+
+    if (existe) {
+
+    alert("Cuenta ya existente");
+    return;
+}
+
+    cuentas.push({
+        usuario: usuario.value,
+        password: password.value
+    });
+
+    document.cookie = `cuentas=${encodeURIComponent(JSON.stringify(cuentas))}; max-age=50000; path=/`;
+
+    alert("Cuenta creada");
+}
+
+function login() {
+
+    const usuarioIngresado =
+        document.getElementById("usuario-login").value;
+
+    const passwordIngresada =
+        document.getElementById("usuario-contraseña-login").value;
+
+    const cookieCuentas = obtenerCookie("cuentas");
+
+    if (!cookieCuentas) {
+        alert("No hay cuentas registradas");
+        return;
+    }
+
+    const cuentas = JSON.parse(
+        decodeURIComponent(cookieCuentas)
+    );
+
+    const cuenta = cuentas.find(
+        cuenta =>
+            cuenta.usuario === usuarioIngresado &&
+            cuenta.password === passwordIngresada
+    );
+
+    if (cuenta) {
+        document.cookie =
+            `sesion=${usuarioIngresado}; max-age=50000; path=/`;
+        alert("Bienvenido");
+
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+}
+
+const usuarioActivo = obtenerCookie("sesion");
+
+if (usuarioActivo) {
+    document.getElementById("Usuario").textContent = usuarioActivo;
+    document.getElementById("Usuario").classList.remove("hidden");
+    document.getElementById('inicio-session').classList.add('hidden')
+    document.getElementById('Crear-cuenta').classList.add('hidden')
+}
+
+document.getElementById('New-Account-btn').addEventListener('click', () => {
+    crearCuenta();
+});
+
+document.getElementById('New-login-btn').addEventListener('click', () => {
+    login();
+});
+
+document.getElementById('Crear-cuenta').onclick = (e) => {
+    e.stopPropagation();
+    document.querySelector('.ui-crear-cuenta').classList.remove('hidden');
+};
+
+document.getElementById('inicio-session').onclick = (e) => {
+    e.stopPropagation();
+    document.querySelector('.ui-sesion-cuenta').classList.remove('hidden');
+    document.querySelector('.ui-sesion-cuenta').classList.remove('hidden');
+};
