@@ -518,11 +518,71 @@ body {
   top: 201px;
   left: 90px;
 }
+.ui-crear-cuenta{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 20px;
+  z-index: 999;
+}
+.ui-sesion-cuenta{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 20px;
+  z-index: 999;
+}
+
+.account-input-user{
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+  width: 250px;
+  outline: none;
+  transition: 0.3s;
+}
+.account-input-password{
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+  font-family: 'Noto Sans', sans-serif;
+  width: 250px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#Usuario{
+  font-size: 1.8rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-style: normal;
+}
 
 /* --- Media Queries (Móviles) --- */
-@media (max-width: 768px) {
+@media (max-width: 360px) {
   .pagename {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
+  }
+
+  .side-menu{
+    width: 100%;
+    padding: 5%;
+  }
+
+  #btn-starlight-toggle{
+    display: flex;
+    justify-content: left;
+    margin-left: 25%;
+  }
+
+  .fav-btn{
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
   }
   
   .search-input {
@@ -557,4 +617,7 @@ body {
 .hidden {
   display: none !important;
 }
+
+.input-error {
+    border: 2px solid red !important;
 }
