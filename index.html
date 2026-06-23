@@ -42,7 +42,7 @@
     </div>
 </header>
 
-<div class="main-container">
+<main class="main-container">
     <aside id="starlight-panel" class="starlight hidden-panel">
         <h2 class="novedad">Novedad</h2>
         <div class="starlight-logo">
@@ -58,21 +58,39 @@
         </a>
     </aside>
 
-    <main class="side-menu">
+    <section class="side-menu">
         <div id="section-title-container">
+            <div class="buttones-de-inicio">
+                <p id="Usuario" class=""></p>
+                <button id="inicio-session" class="custom-btn">iniciar sesión</button>
+                <button id="Crear-cuenta" class="custom-btn">Crear cuenta</button>
+            </div>
+            
+            <div class="ui-crear-cuenta hidden">
+                <input type="text" id="usuario-registrado" class="account-input-user" placeholder="Nombre">
+                <input type="password" id="usuario-contraseña" class="account-input-password" placeholder="Contraseña">
+
+                <button id="New-Account-btn" class="custom-btn">Crear cuenta</button>
+            </div>
+            <div class="ui-sesion-cuenta hidden">
+                <input type="text" id="usuario-login" class="account-input-user" placeholder="Nombre">
+                <input type="password" id="usuario-contraseña-login" class="account-input-password" placeholder="Contraseña">
+
+                <button id="New-login-btn" class="custom-btn">Iniciar sesion</button>
+            </div>
             <div class="title-wrapper">
                 <button id="btn-recomendaciones" class="recomendation-btn">Recomendaciones ⬇</button>
                 <button id="btn-back-menu" class="custom-btn hidden">← Volver al Menú</button>
             </div>
-        </div>
+        </section>
 
-        <div id="genre-menu" class="hidden-panel-vertical">
+        <section id="genre-menu" class="hidden-panel-vertical">
             <button class="custom-btn category-btn" data-genre="all">Todos</button>
             <button class="custom-btn category-btn" data-genre="Heroes">Héroes</button>
             <button class="custom-btn category-btn" data-genre="Fantasy">Fantasía</button>
             <button class="custom-btn category-btn" data-genre="Adventure">Aventura</button>
             <button class="custom-btn category-btn" data-genre="Horror">Horror</button>
-        </div>
+        </section>
         
         <div id="comic-grid" class="gallery-grid">
             <section class="book-item" data-id="Tortugas" data-genre="Heroes">
@@ -116,7 +134,6 @@
                 <button class="fav-btn">⭐</button>
             </section>
         </div> 
-    </main>
 </div>
 
 <div id="info-panel" class="info-side-panel">
@@ -159,6 +176,7 @@
         <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
     </div>
 </div>
+</main>
 
 <footer class="main-footer">
     <p>support@fandomquad.com | Tel: +58 4XX XXXXXXX</p>
