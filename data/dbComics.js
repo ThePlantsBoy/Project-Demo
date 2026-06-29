@@ -100,5 +100,13 @@ const bdComics = {
             "https://drive.google.com/file/d/1Dr-BRtyOV6VIo4K4bJvVXchmFx4adInP/preview",
             "https://drive.google.com/file/d/12B1VjFI8uaUXHppnr4gAn9O2vj4LA_2j/preview"
         ]
+        "Tranformers": { 
+        titulo: "Tranformers", 
+        autor: "Michael Dante DiAvatar",
+        sinopsis: "una nueva aventura.",
+        capitulos: ["Parte 1"],
+        links: [
+            "https://drive.google.com/file/d/13YvT6hNM-pT77aRlRx8aOxd9ZMrh_UND/preview",
+        ]
     }
 };
