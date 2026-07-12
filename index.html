@@ -13,14 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Fandom Squad - Tu pagina para conocer el mundo del comics y el arte, siente librete en leer y aprender sobre todo lo que este en la novedad!</title>
+    <title>Fandom Squad - Tu página para conocer el mundo del cómic y el arte</title>
     
-    <meta name="description" content="Leer y aprender es algo importante, pero avece es mejor cuando hay algo que te mantiene enchangado no? Fandom-Squad se encarga de darte los mejores comics para leer y pasar el rato">
-    <meta name="keywords" content="Lectura, entretenimiento, ciencia ficción, comics, red social">
+    <meta name="description" content="Leer y aprender es algo importante, pero a veces es mejor cuando hay algo que te mantiene enganchado. Fandom-Squad se encarga de darte los mejores cómics para leer y pasar el rato.">
+    <meta name="keywords" content="Lectura, entretenimiento, ciencia ficción, cómics, red social">
     <meta name="author" content="Fandom Squad">
     
     <meta property="og:title" content="Fandom Squad"/>
-    <meta property="og:type" content="Leer comics y crear arte"/>
+    <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://project-demo-sigma-one.vercel.app/index.html"/>
     <meta property="og:image" content="ruta de imagen.jpg"/>
 </head>
@@ -36,212 +36,226 @@
         </div>
     </div>
 
-    <div class="header-btns">
+    <nav class="header-btns">
         <button id="btn-favs-toggle" class="custom-btn">⭐ Favoritos</button>
         <button id="boton-oscuro" class="custom-btn">🌙 Modo Oscuro</button>
-    </div>
+    </nav>
 </header>
 
 <main class="main-container">
     <aside id="starlight-panel" class="starlight hidden-panel">
         <h2 class="novedad">Novedad</h2>
-        <div class="starlight-logo">
+        <figure class="starlight-logo">
             <img src="Textures/Section.png" alt="Starlight Logo" width="250" height="250">
-            <p class="starlight-logo-text">Starlight: A.T.P</p>
-        </div>
+            <figcaption class="starlight-logo-text">Starlight: A.T.P</figcaption>
+        </figure>
         <div class="plants-reference">
             <img src="Textures/Plants.png" alt="Plants Reference" width="200" height="150">
         </div>
-        <p class="question">¿Te gusta dibujo y personajes originales?</p>
+        <p class="question">¿Te gusta el dibujo y los personajes originales?</p>
         <a href="secondpage.html" class="visit-link">
             <button class="custom-btn" style="width: 100%; margin-top: 15px;">Visitar Starlight</button>
         </a>
     </aside>
 
     <section class="side-menu">
-        <section id="section-title-container">
+        <header id="section-title-container">
+            <div class="new-account-message">
+                <p>Cuenta Creada, intenta ingresar ahora</p>
+            </div>
+            <div class="exist-account-message">
+                <p>Cuenta ya existente, prueba cambiando el Usuario.</p>
+            </div>
+            <div class="no-account-message">
+                <p>No cuenta encontrada, por favor crea una nueva.</p>
+            </div>
+            <div class="inccorect-info-message">
+                <p>La contraseña o el nombre de usuario no son correctos.</p>
+            </div>
+            <div class="login-message">
+                <p>Bienvenido de vuelta!</p>
+            </div>
+
             <div class="buttones-de-inicio">
-                <p id="Usuario" class=""></p>
-                <button id="inicio-session" class="custom-btn">iniciar sesión</button>
+                <p id="Usuario"></p>
+                <button id="inicio-session" class="custom-btn">Iniciar sesión</button>
                 <button id="Crear-cuenta" class="custom-btn">Crear cuenta</button>
             </div>
 
             <div class="ui-crear-cuenta hidden">
                 <input type="text" id="usuario-registrado" class="account-input-user" placeholder="Nombre">
                 <input type="password" id="usuario-contraseña" class="account-input-password" placeholder="Contraseña">
-
                 <button id="New-Account-btn" class="custom-btn">Crear cuenta</button>
             </div>
+            
             <div class="ui-sesion-cuenta hidden">
                 <input type="text" id="usuario-login" class="account-input-user" placeholder="Nombre">
                 <input type="password" id="usuario-contraseña-login" class="account-input-password" placeholder="Contraseña">
-
-                <button id="New-login-btn" class="custom-btn">Iniciar sesion</button>
+                <button id="New-login-btn" class="custom-btn">Iniciar sesión</button>
             </div>
 
             <div class="title-wrapper">
                 <button id="btn-recomendaciones" class="recomendation-btn">Recomendaciones ⬇</button>
                 <button id="btn-back-menu" class="custom-btn hidden">← Volver al Menú</button>
             </div>
-        </section>
+        </header>
 
-        <section id="genre-menu" class="hidden-panel-vertical">
+        <nav id="genre-menu" class="hidden-panel-vertical">
             <button class="custom-btn category-btn" data-genre="all">Todos</button>
             <button class="custom-btn category-btn" data-genre="Heroes">Héroes</button>
             <button class="custom-btn category-btn" data-genre="Fantasy">Fantasía</button>
             <button class="custom-btn category-btn" data-genre="Adventure">Aventura</button>
             <button class="custom-btn category-btn" data-genre="Horror">Horror</button>
-        </section>
+        </nav>
         
-        <div id="comic-grid" class="gallery-grid">
-            <section class="book-item" data-id="Tortugas" data-genre="Heroes">
+        <section id="comic-grid" class="gallery-grid">
+            <article class="book-item" data-id="Tortugas" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6415d34ae0e09/1f0856ba84039736aa5ed1c2df0b1e11/Teenage-Mutant-Ninja-Turtles---The-Last-Ronin-001-(2020)-(Digital)-(Mephisto-Empire)-001.jpg" alt="Tortugas Ninja">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Ghostbusters" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Ghostbusters" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_651ad978c522c/90609243eb72146914b0718df5da8711/Ghostbusters---A%C3%B1o-Uno-01-(de-04)-000.jpg" alt="Ghostbusters">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Scrooge" data-genre="Adventure">
+            </article>
+            <article class="book-item" data-id="Scrooge" data-genre="Adventure">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64e32076b1359/bfb63ef0d693a217879376b6a8019a55/Scrooge-McDuck---The-Dragon-of-Glasgow-0000.jpg" alt="Scrooge McDuck">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Llanero" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Llanero" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_62a7767bd4ad7/f53798d437ab369ff9bd60a8c03be65b/The-Lone-Ranger-001-000.jpg" alt="El Llanero Solitario">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Ben 10" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Ben 10" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69feaeb3a5835/73a2b3197b4ef987a7b81569a4275885/Ben-10-001-(2026)-000---Cover-A.jpg" alt="Ben 10">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Dungeons" data-genre="Fantasy">
+            </article>
+            <article class="book-item" data-id="Dungeons" data-genre="Fantasy">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_64cec6a67aa57/1c1845d5ee3fc19138ad008ec68cf7fa/Dungeons-&-Dragons---El-Festival-de-la-Luna-00.jpg" alt="D&D">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Batman" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Batman" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6273f03aa8c62/37104fcac04bd78ff454feaed3d44d3e/Batman---White-Knight-001-(2017)-(Digital)-(Hillary-Clinton)-001.jpg" alt="Batman White Knight">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Korra" data-genre="Adventure">
+            </article>
+            <article class="book-item" data-id="Korra" data-genre="Adventure">
                 <img src="https://m.media-amazon.com/images/I/81Hpl1noN8L._SL1500_.jpg" alt="Legend of Korra">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Hellboy" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Hellboy" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69b87e973a5c1/2af5f00358083834a78310e019fb1a88/Hellboy-and-the-B.P.R.D.---The-Ghost-Ships-of-Labrador-01-0000-copia.jpg" alt="Hellboy">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Godzilla" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Godzilla" data-genre="Horror">
                 <img src="https://assets.mycast.io/posters/godzilla-aftershock-fan-casting-poster-248892-large.jpg" alt="Godzilla Aftershock">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Martian Manhunter" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Martian Manhunter" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_681645292c355/84522de70bebf8f9879dac47290a11cd/AMM000.jpg" alt="Absolute Martian Manhunter">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Green Arrow" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Green Arrow" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6a248739f2a4c/142ed67cc86b141e306a32589567f5c1/Absolute-Green-Arrow-001-(2026)---0001.jpg" alt="Absolute Green Arrow">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Flash" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Flash" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_67e2005753aa9/ebaf343289e140cbf6611f872225e190/Absolute-Flash-001-(2025)-(Digital)-00001.jpg" alt="Absolute Flash">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Wonder Woman" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Wonder Woman" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_672818fb203f4/d7e66ee73588dec737f99abd6a64f196/Absolute-Wonder-Woman-001-(2024)---0001.jpg" alt="Absolute Wonder Woman">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Superman" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Superman" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_68266628de380/16b4b53660a0507babe30b8f6cd94bea/Milk-&-Bone-Custom-Comic-001---Superman---A-Friendship-Unleashed-0000.jpg" alt="Superman: Una Amistad Desatada">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Spider-Man" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Spider-Man" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6916b4a04216c/b56f670ee8a9b9a08ac788d17d5e00ab/The-Spectacular-Spider-Men-001-00000a.jpg" alt="El Espectacular Spider-Man">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Capitan America" data-genre="Heroes">
-                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_689167d298616/607bcc0f96af91eac3987dc8ef1ae595/Captain-America-001-(2025)-(Digital)-(Shan-Empire)-00001.jpg" alt="Capitan America">
+            </article>
+            <article class="book-item" data-id="Capitán América" data-genre="Heroes">
+                <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_689167d298616/607bcc0f96af91eac3987dc8ef1ae595/Captain-America-001-(2025)-(Digital)-(Shan-Empire)-00001.jpg" alt="Capitán América">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Transformers" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Transformers" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_653a752f8b392/614d405dc9f48678aa63de3fda8e407e/COVER-Transformers-001-0000.jpg" alt="Transformers">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="ThunderCats" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="ThunderCats" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6a2df1526abc5/0da18187cd21c180e7b34b3ead51b34d/Thundercats-001-0000.jpg" alt="ThunderCats">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Obi-Wan Kenobi" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Obi-Wan Kenobi" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_62811ce8b9ee5/e9868f0ae7370de2c4eac4170706d827/Star-Wars---Obi-Wan-Kenobi-(2022-)-01-(of-05)-000.jpg" alt="Star Wars: Obi-Wan Kenobi">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Daredevil" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="Daredevil" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_69d9bfb73d039/7b49e44555fa532d92c9daf910832584/Daredevil-001-(2026)-001.jpg" alt="Daredevil">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Los 4 Fantasticos" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Los 4 Fantasticos" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_6882d0c0e3475/13d1806f08fed1e387238bb81bcaa223/Fantastic-Four---First-Steps-001-(2025)-(Digital)-00001.jpg" alt="Los 4 Fantasticos: Primeros Pasos">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="X-Men" data-genre="Heroes">
+            </article>
+            <article class="book-item" data-id="X-Men" data-genre="Heroes">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_663af600e9311/d829f809155b2b4faf2466be5742d16f/P00001.jpg" alt="X-Men '97">
                 <button class="fav-btn">⭐</button>
-            </section>
-            <section class="book-item" data-id="Darth Maul" data-genre="Horror">
+            </article>
+            <article class="book-item" data-id="Darth Maul" data-genre="Horror">
                 <img src="https://marmota.me/wp-content/uploads/WP-manga/data/manga_66c7bb14ed377/26b427d645eae93e32c543f4676f3385/0001.jpg" alt="Star Wars-Darth Maul: Black, White & Red">
                 <button class="fav-btn">⭐</button>
-            </section>
-        </div> 
-</div>
+            </article>
+        </section> 
+    </section>
 
-<div id="info-panel" class="info-side-panel">
-    <div class="panel-header">
-        <button class="custom-btn panel-btn" id="close-info"> ← Volver </button>
-    </div>
-    <div class="panel-body">
-        <div class="panel-main-info">
-            <img id="panel-img" src="" alt="Portada">
-            <div class="text-content">
-                <h2 id="panel-title">Título</h2>
-                <p id="panel-author" class="author-label">Autor</p>
-            </div>
+    <aside id="info-panel" class="info-side-panel">
+        <div class="panel-header">
+            <button class="custom-btn panel-btn" id="close-info"> ← Volver </button>
         </div>
-        <nav class="tabs-nav">
-            <button class="tab-link active" data-tab="tab-resumen">Resumen</button>
-            <button class="tab-link" data-tab="tab-partes">Capítulos</button>
+        <section class="panel-body">
+            <div class="panel-main-info">
+                <img id="panel-img" src="" alt="Portada">
+                <div class="text-content">
+                    <h2 id="panel-title">Título</h2>
+                    <p id="panel-author" class="author-label">Autor</p>
+                </div>
+            </div>
+            <nav class="tabs-nav">
+                <button class="tab-link active" data-tab="tab-resumen">Resumen</button>
+                <button class="tab-link" data-tab="tab-partes">Capítulos</button>
+            </nav>
+            <div class="tabs-container">
+                <article id="tab-resumen" class="tab-content active">
+                    <p id="panel-description">Sinopsis...</p>
+                </article>
+                <article id="tab-partes" class="tab-content">
+                    <ul class="chapters-list"></ul>
+                    <button id="start-reading-btn" class="custom-btn panel-btn" style="width: 100%; margin-top: 20px; padding: 15px;">Leer ahora</button>
+                </article>
+            </div>
+        </section>
+    </aside>
+
+    <div id="img-overlay" class="img-overlay-active"></div>
+
+    <section id="reading-overlay" class="reading-overlay hidden">
+        <nav class="reader-controls">
+            <button id="btn-reader-back" class="custom-btn reader-btn">← Volver</button>
+            <button id="btn-reader-prev" class="custom-btn reader-btn">⏮ Anterior</button>
+            <button id="btn-reader-next" class="custom-btn reader-btn">Siguiente ⏭</button>
         </nav>
-        <div class="tabs-container">
-            <div id="tab-resumen" class="tab-content active">
-                <p id="panel-description">Sinopsis...</p>
-            </div>
-            <div id="tab-partes" class="tab-content">
-                <ul class="chapters-list"></ul>
-                <button id="start-reading-btn" class="custom-btn panel-btn" style="width: 100%; margin-top: 20px; padding: 15px;">Leer ahora</button>
-            </div>
+        <div class="pdf-frame-container">
+            <div class="iframe-cover"></div>
+            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
         </div>
-    </div>
-</div>
-
-<section id="reading-overlay" class="reading-overlay hidden">
-    <div class="reader-controls">
-        <button id="btn-reader-back" class="custom-btn reader-btn">← Volver</button>
-        <button id="btn-reader-prev" class="custom-btn reader-btn">⏮ Anterior</button>
-        <button id="btn-reader-next" class="custom-btn reader-btn">Siguiente ⏭</button>
-    </div>
-    <div id="toast-exit" class="toast">Presiona ESC o haz doble clic para salir</div>
-    <div class="pdf-frame-container">
-        <div class="iframe-cover"></div>
-        <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
-    </div>
-</div>
+    </section>
 </main>
 
 <footer class="main-footer">
-    <p>support@fandomquad.com | Tel: +58 4XX XXXXXXX</p>
+    <a href="mailto:supportfandomquad@gmail.com" target="_blank">p>support@fandomquad.com | Tel: +58 4XX XXXXXXX</p></a>
     <p>© 2026 Fandom-Squad - Noel Eduardo - Gregorio Castillo - Santiago Vargas</p>
 </footer>
 
 <script src="app.js"></script>
-</body>
-</html>
 </body>
 </html>
