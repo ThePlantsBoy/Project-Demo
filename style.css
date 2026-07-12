@@ -536,13 +536,13 @@ body.dark-mode .chapter-item {
   color: white;
   background-color: #1f1f1e;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
-  width: 50%;
+  font-size: 25px;
+  width: 300px;
   text-align: center;
   border-radius: 50px;
   z-index: 3000;
   position: absolute;
-  top: -150px;
+  top: -100px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
@@ -550,13 +550,13 @@ body.dark-mode .chapter-item {
   color: white;
   background-color: #1f1f1e;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
-  width: 50%;
+  font-size: 25px;
+  width: 25%;
   text-align: center;
   border-radius: 50px;
   z-index: 3000;
   position: absolute;
-  top: -150px;
+  top: -100px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
@@ -564,13 +564,13 @@ body.dark-mode .chapter-item {
   color: white;
   background-color: #1f1f1e;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
-  width: 50%;
+  font-size: 25px;
+  width: 26%;
   text-align: center;
   border-radius: 50px;
   z-index: 3000;
   position: absolute;
-  top: -150px;
+  top: -100px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
@@ -578,13 +578,13 @@ body.dark-mode .chapter-item {
   color: white;
   background-color: #1f1f1e;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
-  width: 50%;
+  font-size: 25px;
+  width: 26%;
   text-align: center;
   border-radius: 50px;
   z-index: 3000;
   position: absolute;
-  top: -150px;
+  top: -100px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
@@ -592,13 +592,13 @@ body.dark-mode .chapter-item {
   color: white;
   background-color: #1f1f1e;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
-  width: 50%;
+  font-size: 25px;
+  width: 20%;
   text-align: center;
   border-radius: 50px;
   z-index: 3000;
   position: absolute;
-  top: -150px;
+  top: -100px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
@@ -718,5 +718,92 @@ body.dark-mode .chapter-item {
 
   .account-input-user, .account-input-password {
     width: 100%;
+  }
+
+  .new-account-message{
+  color: white;
+  background-color: #1f1f1e;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  width: 50%;
+  text-align: center;
+  border-radius: 50px;
+  z-index: 3000;
+  position: absolute;
+  top: -150px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  }
+  .exist-account-message{
+    color: white;
+    background-color: #1f1f1e;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px;
+    z-index: 3000;
+    position: absolute;
+    top: -150px;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .no-account-message{
+    color: white;
+    background-color: #1f1f1e;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px;
+    z-index: 3000;
+    position: absolute;
+    top: -150px;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .inccorect-info-message{
+    color: white;
+    background-color: #1f1f1e;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px;
+    z-index: 3000;
+    position: absolute;
+    top: -150px;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .login-message{
+    color: white;
+    background-color: #1f1f1e;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px;
+    z-index: 3000;
+    position: absolute;
+    top: -150px;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .new-account-message.show{
+    opacity: 1;
+  }
+  .exist-account-message.show{
+    opacity: 1;
+  }
+  .no-account-message.show{
+    opacity: 1;
+  }
+  .inccorect-info-message.show{
+    opacity: 1;
+  }
+  .login-message.show{
+    opacity: 1;
   }
 }
