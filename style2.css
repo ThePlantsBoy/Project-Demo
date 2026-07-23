@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght=700&display=swap');
 
 :root {
     --bg-header: #000000;
@@ -169,6 +169,46 @@ body {
     font-size: 2rem;
     margin-bottom: 15px;
     color: #ffd700;
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.starlight-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 55px;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.text2{
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.text3{
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
 .intro-box p {
