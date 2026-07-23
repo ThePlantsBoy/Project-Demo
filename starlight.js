@@ -1,31 +1,31 @@
 // Base de datos de Personajes para el Carrusel Infinito
 const listadoPersonajes = [
     {
-        nombre: "Plants, The Immortal Vessel",
-        descripcion: "Plants it's the first one i created, and the same one that stick thought my whole life, as a immortal being he always taking risk and care's a lot for anyone around him.",
-        b1: "He squishy and almost like he doesn't have bones.",
-        b2: "Dying become such a habit that he just, doesn't care about it anymore.",
+        nombre: "Plants, El Vessel immortal",
+        descripcion: "Plants es un humano con la capacidad de evitar la muerte, y siempre se pondra enfrente del peligro para ayudar a los que les importa, sus amigos son la razon que nunca se a rendido",
+        b1: "Su cuerpo es blando, sus huesos tambien, hacinedolo muy bueno para abrazos como si estuvieras abrazando un peluche",
+        b2: "Morir se volvio algo tan normal para el que realmente no le importa mucho si lo hace",
         imagen: "Textures/plants(character).png"
     },
     {
-        nombre: "Past, The Kind soul",
-        descripcion: "Past it's the kind and shield of the team, aswell as the second character that came to existence, he is a kind soul, and wouldn't not even hurt a fly",
-        b1: "His shield was made by his father, and it's extremely special for him",
-        b2: "A amazing chef, and the only one that can cook out of his friend",
+        nombre: "Past, El Caballero Amable",
+        descripcion: "Past es el alma y escudo del equipo, el mismo se encarga de que todos esten en buen estado no importando la situacion, pelea hasta su ultimo aliento",
+        b1: "Tiene un escudo echo por su padre, que puede usar para protejerse asi mismo y sus amigos alrededor, capaz de aguanta de lo peor",
+        b2: "Es un gran cocinero, pero es el unico de su grupo que es capaz de cocinar, intento enseñarle a plants.. para que luego quemara toda la cocina",
         imagen: "Textures/Past.png"
     },
     {
-        nombre: "Lily, Ex-mercenary",
-        descripcion: "The Brain and planning of the group, even if she ain't the leader, she still know's how to make extra planning if needed to, better safe than sorry!",
+        nombre: "Lily, Ex-Mercenaria",
+        descripcion: "El Cerebro y el planeadora del equipo, incluso si plants es el lider del grupo, ella siempre tiene un plan b cuando las cosas no parecen funcionar bien, mejor que nada!",
         b1: "Electricity being her speciality, but also, she being extremely weak to physical combat",
         b2: "extremely shy to talk to new people unless the others present her",
         imagen: "Textures/Lily.png"
     },
     {
-        nombre: "Zetary, Crazy minded",
-        descripcion: "The Powerhouse of the group, somebody who can take hits and laugh about it, he really doesn't mind taking a bullet to the face for his friends, not matter what.",
-        b1: "A coffee lover, he need's it a lot to stay awake thanks to his telekinses powers",
-        b2: "Unlike the others, he won't hesistated to kill if needed to",
+        nombre: "Zetary, Pesadilla Cristalizada",
+        descripcion: "El Muro y pared, capaz de tomar todo tipo de complicacion y usarlo en fuerza, su corazon es de crystal y esta listo para hacer lo que sea para mantener a su amigos, lo que sea.",
+        b1: "El es un amante de cafe, pero tiene problemas de sueño por culpa de su telekinesis",
+        b2: "A diferencia de sus compañeros, el no tomara ninguna chance si necesita matar a alguien",
         imagen: "Textures/Zetary.png"
     }
 ];
