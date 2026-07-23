@@ -674,7 +674,28 @@ body.dark-mode .chapter-item {
   }
 
   #btn-starlight-toggle{
-    margin-left: 0;
+    margin-left: 79px;
+  }
+
+  #starlight-panel{
+    padding-left: 5%;
+  }
+
+  .novedad{
+    margin-left: 10px;
+  }
+
+  .starlight-logo img{
+    margin: 20px;
+    margin-top: 50px;
+    margin-left: 5px;
+    width: 250px;
+    height: 300px;
+  }
+
+  .starlight-logo-text{
+    margin-top: 80px;
+    margin-left: -30px;
   }
 
   .fav-btn{
