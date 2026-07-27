@@ -3,6 +3,7 @@ const listadoPersonajes = [
     {
         nombre: "Plants, El Vessel immortal",
         descripcion: "Plants es un humano con la capacidad de evitar la muerte, y siempre se pondra enfrente del peligro para ayudar a los que les importa, sus amigos son la razon que nunca se a rendido",
+        lore: "El fue el primer que cree cuando andaba apenas entrando al mundo de la ficción, siendo lo que básicamente me caracteriza incluso hasta el dia de hoy, incluso luego de tantos cambios, todavia siento que puedo cambiar su diseño y darle un poco de toques a su historia, pero es algo que intentare manejar!",
         b1: "Su cuerpo es blando, sus huesos tambien, hacinedolo muy bueno para abrazos como si estuvieras abrazando un peluche",
         b2: "Morir se volvio algo tan normal para el que realmente no le importa mucho si lo hace",
         imagen: "Textures/plants(character).png"
@@ -10,6 +11,7 @@ const listadoPersonajes = [
     {
         nombre: "Past, El Caballero Amable",
         descripcion: "Past es el alma y escudo del equipo, el mismo se encarga de que todos esten en buen estado no importando la situacion, pelea hasta su ultimo aliento",
+        lore: "La idea de Past fue mayormente para tener alguien en el grupo que sea pacifita pero no tenga miedo de proteger a sus amigos, sin mencionar que antes tenia una historia algo mas.. confusa, Past es ese personaje que le tengo aprecio mucho por cosas personales, y que, de cierto modo me ayudaron mucho en conocer gente maravillosa durante mis años de vida",
         b1: "Tiene un escudo echo por su padre, que puede usar para protejerse asi mismo y sus amigos alrededor, capaz de aguanta de lo peor",
         b2: "Es un gran cocinero, pero es el unico de su grupo que es capaz de cocinar, intento enseñarle a plants.. para que luego quemara toda la cocina",
         imagen: "Textures/Past.png"
@@ -17,13 +19,15 @@ const listadoPersonajes = [
     {
         nombre: "Lily, Ex-Mercenaria",
         descripcion: "El Cerebro y el planeadora del equipo, incluso si plants es el lider del grupo, ella siempre tiene un plan b cuando las cosas no parecen funcionar bien, mejor que nada!",
+        lore: "Lily iba a ser mayormente el diseño femenino de plants antes de su rediseño, decidi cambiar esa idea para darle una personalidad de una líder de un grupo mercenario, siendo la mente del grupo, Incluso asi Lily sigue siendo un oc que quiero dejar ya como esta sin mencionar que su diseño es el unico que casi no a cambiado igual que a Past",
         b1: "Electricity being her speciality, but also, she being extremely weak to physical combat",
         b2: "extremely shy to talk to new people unless the others present her",
         imagen: "Textures/Lily.png"
     },
     {
         nombre: "Zetary, Pesadilla Cristalizada",
-        descripcion: "El Muro y pared, capaz de tomar todo tipo de complicacion y usarlo en fuerza, su corazon es de crystal y esta listo para hacer lo que sea para mantener a su amigos, lo que sea.",
+        descripcion: "El Muro y pared, capaz de tomar todo tipo de complicacion y usarlo en fuerza, su corazon es de crystal y esta listo para hacer lo que sea para mantener a sus amigos, lo que sea.",
+        lore: "El iba a ser uno de los villanos principales para el grupo, pero la idea de que el estuviera con el grupo me prencio mejor, sin mencionar que no soy muy bueno haciendo villanos a veces, pero no quitara que pienso hacerlo un antagonista para intentar probar esa idea otra vez quien sabe talvez asi llamo la antencion de personas que le gusta villanos con telekinesis, o solo gente que le gusta los plot twist",
         b1: "El es un amante de cafe, pero tiene problemas de sueño por culpa de su telekinesis",
         b2: "A diferencia de sus compañeros, el no tomara ninguna chance si necesita matar a alguien",
         imagen: "Textures/Zetary.png"
@@ -67,6 +71,7 @@ function actualizarPersonaje() {
     const p = listadoPersonajes[indexPersonajeActual];
     document.getElementById('char-name').textContent = p.nombre;
     document.getElementById('char-desc').textContent = p.descripcion;
+    document.getElementById('char-lore').textContent = p.lore;
     document.getElementById('bullet1').textContent = p.b1;
     document.getElementById('bullet2').textContent = p.b2;
     document.getElementById('char-img').src = p.imagen;
@@ -129,8 +134,6 @@ document.getElementById("prev-gal").addEventListener("click", () => {
     }
 });
 
-
-
 // --- LÓGICA SECCIÓN 4: ESTUDIO DE CÓMICS (CANVAS) ---
 const canvas = document.getElementById('comic-canvas');
 const ctx = canvas.getContext('2d');
@@ -160,10 +163,21 @@ document.getElementById('tool-eraser').onclick = () => setHerramientaActiva('too
 document.getElementById('tool-bucket').onclick = () => setHerramientaActiva('tool-bucket', 'bucket');
 
 // Controladores de dibujo de ratón y pantallas táctiles
-canvas.addEventListener('mousedown', iniciarDibujo);
-canvas.addEventListener('mousemove', dibujar);
-canvas.addEventListener('mouseup', detenerDibujo);
-canvas.addEventListener('mouseleave', detenerDibujo);
+canvas.addEventListener('pointerdown', iniciarDibujo);
+canvas.addEventListener('pointermove', dibujar);
+canvas.addEventListener('pointerup', detenerDibujo);
+canvas.addEventListener('pointerleave', detenerDibujo);
+canvas.addEventListener('pointercancel', detenerDibujo);
+
+
+function obtenerPosicion(e) {
+    const rect = canvas.getBoundingClientRect();
+
+    return {
+        x: (e.clientX - rect.left) * (canvas.width / rect.width),
+        y: (e.clientY - rect.top) * (canvas.height / rect.height)
+    };
+}
 
 function iniciarDibujo(e) {
     if (tipoHerramienta === 'bucket') {
@@ -178,6 +192,8 @@ function iniciarDibujo(e) {
 function dibujar(e) {
     if (!dibujando) return;
     
+    const pos = obtenerPosicion(e);
+
     ctx.lineWidth = inputGrosor.value;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
@@ -192,7 +208,10 @@ function dibujar(e) {
     ctx.stroke();
 }
 
-function detenerDibujo() { dibujando = false; }
+function detenerDibujo() { 
+    dibujando = false;
+    ctx.closePath();
+}
 
 function rellenarLienzoCompleto() {
     ctx.fillStyle = inputColor.value;
