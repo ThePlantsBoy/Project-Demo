@@ -2,6 +2,10 @@
 
 ReadVerse es una plataforma integral diseñada para los amantes de las historias en todos sus formatos. Ya sea que busques el último cómic de superhéroes, una novela clásica, o la novelización de tu videojuego o película favorita, ReadVerse centraliza tu pasión por la lectura en un solo lugar.
 
+La pagina fue creada con mucho trabajo en equipo en varias ideas tiradas de lado a lado para tener una mayor idea de lo que queríamos, al principio, no todo parecida funcionar pero luego de pensar que es lo que mayormente nos gusta, intentamos aplicar lo que aprendimos para crear un catalogo de comics y categoría propia para gente que adora el arte, y o quieren crear sus propios comics tambien!
+
+Espero que le gusten
+
 ## 🚀 Características Principales
 
 * **Catálogo Híbrido:** Acceso a comics de tu franquicias favoritas
@@ -21,6 +25,11 @@ Este proyecto está construido utilizando:
 *Gregorio Castillo*
 *Noel Hernandez*
 *Santiago Vargas*
+
+# Idea y concepto principal
+
+https://www.figma.com/design/pvXL0AG33SLsH9phNsce7w/INTERFAZ-PROTOTIPO?node-id=0-1&t=jFGZDRFIEDpt8gtF-0 - Pagina principal
+https://www.figma.com/design/PP14h1VUT73dqM5EHupybV/Web-Page---My-part?node-id=0-1&t=zv4a2KOHlR3XJh67-0 - Pagina Starlight
 
 ## 📦 Instalación
 
