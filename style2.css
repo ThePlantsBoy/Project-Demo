@@ -456,6 +456,21 @@ body {
 .gallery-track{
     gap: 98px;
 }
+
+.canvas-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    padding: 5px;
+    overflow: auto;
+    touch-action: none;
+    width: 265px;
+    height: 500px;
+}
 }
 
 .hidden { display: none !important; }
