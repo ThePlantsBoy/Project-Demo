@@ -31,6 +31,7 @@ Obviamente empezamos de algo, y estos son los conceptos principales de las pagin
 de igual manera, miren ustedes el mismo cambio, estos son las paginas originales
 
 https://www.figma.com/design/pvXL0AG33SLsH9phNsce7w/INTERFAZ-PROTOTIPO?node-id=0-1&t=jFGZDRFIEDpt8gtF-0 - Pagina principal
+
 https://www.figma.com/design/PP14h1VUT73dqM5EHupybV/Web-Page---My-part?node-id=0-1&t=zv4a2KOHlR3XJh67-0 - Pagina Starlight
 
 ## 📦 Instalación
