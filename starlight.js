@@ -184,9 +184,12 @@ function iniciarDibujo(e) {
         rellenarLienzoCompleto();
         return;
     }
+
+    const pos = obtenerPosicion(e)
+    
     dibujando = true;
     ctx.beginPath();
-    ctx.moveTo(e.offsetX, e.offsetY);
+    ctx.moveTo(pos.x, pos.y);
 }
 
 function dibujar(e) {
@@ -204,7 +207,7 @@ function dibujar(e) {
         ctx.strokeStyle = '#ffffff'; // El borrador pinta en blanco
     }
 
-    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
 }
 
@@ -227,9 +230,14 @@ document.getElementById('btn-clear-canvas').onclick = () => {
 
 // Generador de plantillas predeterminadas de viñetas de Cómic
 const selectorPlantilla = document.getElementById('tool-template');
+
+
 selectorPlantilla.onchange = aplicarPlantilla;
 
 function aplicarPlantilla() {
+    ctx.fillStyle = "#ffffff"
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     const modelo = selectorPlantilla.value;
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 4;
